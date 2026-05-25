@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About · Basque Wine Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Libre Baskerville", Georgia, serif; background: #FFFFFF; color: #2A4429; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+  .wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 40px; }
+  .page-section { padding: 80px 0; }
+  .btn:not(.btn--tertiary) { white-space: nowrap; }
+  .btn--tertiary { white-space: nowrap; }
+  .nav-item a { white-space: nowrap; }
+
+  /* About hero */
+  .about-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: stretch;
+    min-height: 580px;
+  }
+  .about-hero .portrait {
+    background: #E6ECE0 center/cover;
+  }
+  .about-hero .copy {
+    padding: 96px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-hero .copy code {
+    display: block;
+    margin-bottom: 22px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #5A7152;
+  }
+  .about-hero h1 {
+    margin: 0 0 28px;
+    font-size: 48px;
+    line-height: 1.05;
+  }
+  .about-hero h1 em { color: #2A4429; font-style: italic; }
+  .about-hero .roles {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #5A7152;
+    line-height: 1.7;
+  }
+
+  /* Story */
+  .story p { font-size: 17px; line-height: 1.8; margin: 0 0 22px; }
+  .story h3 {
+    font-size: 26px;
+    margin: 56px 0 16px;
+  }
+  .story .first-letter::first-letter {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 72px;
+    float: left;
+    line-height: 0.85;
+    padding: 6px 10px 0 0;
+    color: #2A4429;
+  }
+  .pull {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-style: italic;
+    font-size: 28px;
+    line-height: 1.4;
+    color: #2A4429;
+    border-left: 3px solid #8DA63F;
+    padding-left: 28px;
+    margin: 48px 0;
+  }
+
+  /* Credentials strip */
+  .creds {
+    background: #F1F4ED;
+    padding: 72px 0;
+  }
+  .creds-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .cred {
+    border-top: 1px solid #D9E0D3;
+    padding-top: 20px;
+  }
+  .cred .label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #5A7152;
+    margin-bottom: 10px;
+  }
+  .cred .value {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 19px;
+    line-height: 1.4;
+    color: #2A4429;
+  }
+  .cred .value em { color: #2A4429; }
+
+  /* Logo story */
+  .logo-story {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .logo-story .logo-wrap {
+    aspect-ratio: 1/1;
+    background: #2A4429;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-story .logo-wrap img {
+    width: 70%;
+  }
+
+  /* What I do */
+  .what-i-do {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .what-card .num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #8DA63F;
+    margin-bottom: 14px;
+  }
+  .what-card h3 { margin: 0 0 12px; font-size: 24px; }
+  .what-card p { margin: 0; font-size: 16px; line-height: 1.65; color: #5A7152; }
+
+  /* Contact form (dark variant on green hero) */
+  .contact-form-dark .form-group { margin-bottom: 22px; text-align: left; }
+  .contact-form-dark .form-group label {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8DA63F;
+    margin-bottom: 8px;
+  }
+  .contact-form-dark .form-group .required { color: #FFFFFF; }
+  .contact-form-dark .form-group input[type="text"],
+  .contact-form-dark .form-group input[type="email"],
+  .contact-form-dark .form-group select,
+  .contact-form-dark .form-group textarea {
+    width: 100%;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFFFFF;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 12px 14px;
+    border-radius: 0;
+    outline: none;
+    transition: border-color .15s ease, background-color .15s ease;
+  }
+  .contact-form-dark .form-group input::placeholder,
+  .contact-form-dark .form-group textarea::placeholder { color: rgba(230, 236, 224, 0.4); }
+  .contact-form-dark .form-group input:focus,
+  .contact-form-dark .form-group select:focus,
+  .contact-form-dark .form-group textarea:focus {
+    border-color: #8DA63F;
+    background: rgba(255,255,255,0.08);
+  }
+  .contact-form-dark .form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+  .contact-form-dark .form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%238DA63F' d='M6 8L0 0h12z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 10px;
+    padding-right: 40px;
+  }
+  .contact-form-dark .form-group select option { background: #2A4429; color: #FFFFFF; }
+  .contact-form-dark .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .contact-form-dark .form-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .contact-form-dark .form-foot .privacy {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8DA63F;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-top: 1px solid #E6ECE0;
+    padding: 28px 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid #E6ECE0; }
+  .faq-item h4 { font-size: 20px; margin: 0 0 10px; }
+  .faq-item p { margin: 0; font-size: 16px; line-height: 1.65; color: #5A7152; }
+</style>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="announcement-bar">
+  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;">Now pouring in Kansas City · Hello from the Basque Country</p></div>
+</div>
+
+<!-- ============ Header ============ -->
+<header class="header">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; padding-top: 22px; padding-bottom: 22px;">
+    <div style="display:flex; align-items:center; gap: 14px;">
+      <img src="assets/topa-logo.webp" alt="" style="width:52px; height:52px;" />
+      <h2 class="site-title" style="margin:0; font-size: 22px;"><a href="index.html" style="text-decoration:none;">Basque Wine Imports</a></h2>
+    </div>
+    <nav style="display:flex; gap: 28px; flex-wrap: nowrap;">
+      <div class="nav-item"><a href="index.html">Home</a></div>
+      <div class="nav-item nav-item--active"><a href="about.html">About</a></div>
+      <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+      <div class="nav-item"><a href="events.html">Events</a></div>
+      <div class="nav-item"><a href="blog.html">Journal</a></div>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="about-hero">
+  <div class="portrait" style="background-image: url('assets/kerri-lesh.png'); background-position: center top;"></div>
+  <div class="copy">
+    <code>About · Founder &amp; importer</code>
+    <h1 style="white-space: nowrap;">Hello, I'm <em>Kerri Lesh</em></h1>
+    <p style="font-size: 19px; line-height: 1.65; color: #2A4429; margin: 0 0 28px;">A cultural anthropologist dedicated to sharing the history, language, and flavors of the Basque Country — one bottle at a time.</p>
+    <p class="roles">
+      Founder, Basque Wine Imports<br/>
+      PhD, Basque Studies · University of Nevada, Reno<br/>
+      Certified Specialist of Wine<br/>
+      Travel expert &amp; college adjunct instructor
+    </p>
+  </div>
+</section>
+
+<!-- ============ Story ============ -->
+<section class="page-section story">
+  <div class="wrap-narrow">
+    <code style="display:block; margin-bottom: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">The long way around</code>
+    <h2 style="margin: 0 0 36px; white-space: nowrap;">From Zaragoza to <em>Kansas City</em></h2>
+
+    <p class="first-letter">My fascination with the Basque Country began early, during a high-school trip to Spain when I stayed near Zaragoza. It was there that I first learned about Spain's autonomous communities and discovered one in particular whose people spoke a language isolate — <em>Euskara</em>. The Basque language has no known relatives. It is not Indo-European. Linguists have spent two hundred years trying to place it, and have given up.</p>
+
+    <p>That initial spark stayed with me through a semester abroad in Granada and later while working in the wine industry in Austin, Texas. With the guidance of an inspiring wine manager and access to an excellent education program, I tasted my first Basque wine — Txakoli — and was, immediately, obsessed.</p>
+
+    <p class="pull">"There are easier wines to fall in love with. There are not many more interesting ones."</p>
+
+    <h3>The PhD years</h3>
+
+    <p>Driven by a growing passion for the language, I pursued and earned a PhD in Basque Studies–Anthropology at the University of Nevada, Reno — one of the few places in North America where you can do serious academic work on the region. My studies let me explore Basque language, culture, and foodways from every angle. I also had the chance to study at a <em>barnetegi</em> — a Basque-language immersion boarding school where students live and learn Euskara around the clock for intensive periods — for three months the year before conducting fieldwork.</p>
+
+    <p>It changed everything. Living inside the language — not just studying it — let me understand how it shapes the culture around it. The way Basques talk about wine, food, family, work, the sea: all of it sits on top of a vocabulary that has been around longer than Latin. You can't translate that. You can only point at it.</p>
+
+    <h3>Coming home</h3>
+
+    <p>During Covid, I returned to Kansas City, where I was born. It was supposed to be temporary. But the longer I spent here, the more I realized that the city was the perfect place to share the wines I had spent fifteen years getting to know — wines that were largely unknown to American consumers, sold mostly to a small circle of restaurants in New York and the Bay Area, and never to the middle of the country.</p>
+
+    <p>I wanted to create opportunities for people here to learn about this culturally rich region the way I had: not just through a tasting note, but through history, language, and tradition. Through the people who made the wines. Through the towns the wines came from.</p>
+
+    <h3>Topa</h3>
+
+    <p>In 2025, I partnered with a Basque branding and design company I'd worked with previously to create a logo for what would become Basque Wine Imports — formally, <em>Topa Wine Imports, LLC</em>. The design incorporates the <em>ikurriña</em> — the Basque flag — around the border, and features the Basque word <strong>"Topa,"</strong> meaning <em>"Cheers!"</em></p>
+
+    <p>It's a small thing, but it matters. The wines deserve a label that honors where they come from. So does the language.</p>
+
+    <p>Alongside running Basque Wine Imports, I continue to teach as a college adjunct instructor and lead cultural and wine-focused travel experiences for groups from the U.S. Whether I'm in a Kansas City wine bar, a classroom in Reno, a Bilbao cellar, or a pintxos crawl through San Sebastián — I bring a blend of academic insight, enthusiasm, and genuine love for connecting people to the stories, traditions, and gastronomy of the Basque Country.</p>
+
+    <p>That's the long version. The short version is: I went to the Basque Country, fell in love, and brought some of it home.</p>
+  </div>
+</section>
+
+<!-- ============ Credentials ============ -->
+<section class="creds">
+  <div class="wrap">
+    <code style="display:block; margin-bottom: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">The credentials</code>
+    <div class="creds-grid">
+      <div class="cred">
+        <div class="label">Doctorate</div>
+        <div class="value">PhD, Basque Studies <em>– Anthropology</em><br/>University of Nevada, Reno</div>
+      </div>
+      <div class="cred">
+        <div class="label">Wine</div>
+        <div class="value">Certified Specialist of Wine <em>(CSW)</em><br/>Society of Wine Educators</div>
+      </div>
+      <div class="cred">
+        <div class="label">Language</div>
+        <div class="value">Conversational Euskara<br/><em>3-month immersion · barnetegi</em></div>
+      </div>
+      <div class="cred">
+        <div class="label">Teaching</div>
+        <div class="value">College adjunct instructor<br/><em>Basque culture, wine, travel</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Logo story ============ -->
+<section class="page-section">
+  <div class="wrap">
+    <div class="logo-story">
+      <div class="logo-wrap">
+        <img src="assets/topa-logo.webp" alt="The Topa logo — a circle bordered by the Basque ikurriña with the word Topa at the center" />
+      </div>
+      <div>
+        <code style="display:block; margin-bottom: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">The mark</code>
+        <h2 style="margin: 0 0 22px;">A word that means <em>cheers</em></h2>
+        <p style="font-size: 17px; line-height: 1.7; color: #2A4429; margin: 0 0 18px;">The logo was designed in 2025 by a Basque branding studio I'd worked with previously. The border is the <em>ikurriña</em> — the Basque flag, designed in 1894 by Sabino Arana, and one of the most quietly powerful national symbols in Europe. At the center is the Basque word <strong>Topa</strong>: a toast, a greeting, a small piece of a language no one else in the world speaks.</p>
+        <p style="font-size: 17px; line-height: 1.7; color: #5A7152; margin: 0;">The full legal name of the company is Topa Wine Imports, LLC. We do business as Basque Wine Imports — but the spirit of the mark is the toast. Pour something, say <em>Topa</em>, and mean it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ What I do today ============ -->
+<section class="page-section" style="background: #F1F4ED;">
+  <div class="wrap">
+    <div style="margin-bottom: 48px; max-width: 56ch;">
+      <code style="display:block; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">What I do now</code>
+      <h2 style="margin: 0; white-space: nowrap;">Three jobs, <em>one subject</em></h2>
+    </div>
+    <div class="what-i-do">
+      <div class="what-card">
+        <div class="num">01 · Importer</div>
+        <h3>Basque Wine Imports</h3>
+        <p>The day job. Two producers, six bottles, a small but growing list of restaurants and retailers in Kansas City and St. Louis. I curate the portfolio, run the public tastings, and pour at most of them myself.</p>
+      </div>
+      <div class="what-card">
+        <div class="num">02 · Educator</div>
+        <h3>College adjunct &amp; lecturer</h3>
+        <p>I continue to teach courses on Basque culture, language, and foodways as a college adjunct instructor — and lead occasional guest lectures at wine programs and culinary schools across the Midwest.</p>
+      </div>
+      <div class="what-card">
+        <div class="num">03 · Travel guide</div>
+        <h3>Cultural &amp; wine travel</h3>
+        <p>Several times a year, I lead small-group cultural and wine-focused travel experiences for U.S. visitors to the Basque Country — vineyard visits, pintxos crawls, language basics, and the towns most tour books don't get to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contact form (replaces the CTA — was a separate Contact page) ============ -->
+<section id="contact" class="page-section" style="background: #2A4429; color: #FFFFFF;">
+  <div class="wrap-narrow" style="text-align: center;">
+    <code style="display:block; margin-bottom: 14px; color: #8DA63F; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;">Get in touch</code>
+    <h2 style="color: #FFFFFF; margin: 0 0 18px;">Pour something, say <em style="color: #8DA63F;">Topa</em></h2>
+    <p style="font-size: 17px; line-height: 1.65; color: #E6ECE0; max-width: 52ch; margin: 0 auto 48px;">For restaurants, retailers, private tastings, travel inquiries, or just a question about txakoli — write to me directly. I read every email, usually within a day or two.</p>
+  </div>
+
+  <div class="wrap-narrow">
+    <form action="mailto:kerri@basquewineimports.com" method="post" enctype="text/plain" class="contact-form-dark">
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="c-name">Your name <span class="required">*</span></label>
+          <input id="c-name" name="name" type="text" required />
+        </div>
+        <div class="form-group">
+          <label for="c-email">Email <span class="required">*</span></label>
+          <input id="c-email" name="email" type="email" required />
+        </div>
+      </div>
+
+      <div class="form-row-2">
+        <div class="form-group">
+          <label for="c-company">Company or venue</label>
+          <input id="c-company" name="company" type="text" placeholder="Optional" />
+        </div>
+        <div class="form-group">
+          <label for="c-city">City</label>
+          <input id="c-city" name="city" type="text" placeholder="Kansas City, St. Louis, …" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="c-topic">What is this about? <span class="required">*</span></label>
+        <select id="c-topic" name="topic" required>
+          <option value="">Choose a topic</option>
+          <option value="restaurant">Restaurant or retail inquiry</option>
+          <option value="private">Private tasting or wine dinner</option>
+          <option value="travel">Travel — Basque Country experiences</option>
+          <option value="press">Press, podcast, or interview</option>
+          <option value="speaking">Speaking or guest lecture</option>
+          <option value="general">Something else</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="c-message">Your message <span class="required">*</span></label>
+        <textarea id="c-message" name="message" required placeholder="A few sentences about what you have in mind. The more specific, the faster I can be useful."></textarea>
+      </div>
+
+      <div class="form-foot">
+        <button class="btn btn--primary btn--medium" type="submit">Send to Kerri</button>
+        <span class="privacy">Or: <a href="mailto:kerri@basquewineimports.com" style="color:#E6ECE0;">kerri@basquewineimports.com</a> &nbsp;·&nbsp; <a href="http://instagram.com/basquewineimports" style="color:#E6ECE0;">@basquewineimports</a></span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="page-section" style="background: #F1F4ED;">
+  <div class="wrap-narrow">
+    <code style="display:block; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">Before you write</code>
+    <h2 style="margin: 0 0 36px;">A few <em>common questions</em></h2>
+
+    <div class="faq-item">
+      <h4>Are you taking on new restaurant or retail accounts?</h4>
+      <p>Yes — in Kansas City, St. Louis, and select Midwest markets. We work with a small portfolio and place wines selectively, so a quick conversation about your program is the right first step.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Do you do private tastings?</h4>
+      <p>Often. For private dinners, corporate events, and serious birthdays — I bring four to six bottles, a short presentation, and the story of the place. Pricing depends on group size and travel.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Can I join one of your trips to the Basque Country?</h4>
+      <p>I lead a few small-group cultural and wine-focused trips per year. Sign up for the journal newsletter — that's where new trips are announced first — or write directly and I'll add you to the early-notice list.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Can I buy wine directly from you?</h4>
+      <p>For consumer purchases, ask for us at one of the restaurants and retailers we work with — or reach out and I'll point you to the closest one stocking what you're after.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap" style="padding: 64px 0 32px;">
+    <div style="display:grid; grid-template-columns: 1.6fr 1fr 1.2fr 1.4fr; gap: 48px; align-items: start;">
+      <div>
+        <div style="display:flex; align-items:center; gap: 14px; margin-bottom: 18px;">
+          <img src="assets/topa-logo.webp" alt="" style="width:42px; height:42px; background:#FFFFFF; border-radius: 999px; padding: 3px;" />
+          <h3 style="font-size: 18px; margin: 0; white-space: nowrap;">Basque Wine Imports</h3>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; max-width: 38ch;">Curated wines from the Basque Country. Founded in 2024 in Kansas City.</p>
+        <div style="display: flex; gap: 10px; align-items: center; margin-top: 14px;">
+          <img src="assets/basque-flag.png" alt="Ikurriña — Basque flag" title="Topa — a nod to the Basque Country" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+          <img src="assets/kc-flag.png" alt="Kansas City flag" title="Home base — Kansas City" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Explore</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="index.html">Home</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="about.html">About</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="http://instagram.com/basquewineimports">@basquewineimports</a></p>
+        <p style="margin: 6px 0; font-size: 14px;">13725 W. 108th St.<br/>Lenexa, KS 66215</p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
+        <div class="form-wrapper newsletter-form">
+          <div style="display:flex; flex-direction: column; gap: 8px;">
+            <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="margin: 48px 0 24px;" />
+    <div style="display:flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing:0.18em; text-transform: uppercase;">
+      <span>© 2025 Basque Wine Imports</span>
+      <span>13725 W. 108th St. · Lenexa, KS 66215</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

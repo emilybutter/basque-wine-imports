@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Basque Wine Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>/* Preview-only formatting nudges */
+  .btn:not(.btn--tertiary) { white-space: nowrap; }
+  .btn--tertiary { white-space: nowrap; }
+  .nav-item a { white-space: nowrap; }
+  /* Wine grid cards — consistent vertical rhythm */
+  .grid-item { display: flex; flex-direction: column; }
+  .grid-item > p { flex: 1; }
+  .grid-item > a.btn--tertiary { margin-top: auto; }
+</style>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ Announcement bar ============ -->
+<div class="announcement-bar">
+  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;">Now pouring in Kansas City · Hello from the Basque Country</p></div>
+</div>
+
+<!-- ============ Header ============ -->
+<header class="header">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; padding-top: 22px; padding-bottom: 22px;">
+    <div style="display:flex; align-items:center; gap: 14px;">
+      <img src="assets/topa-logo.webp" alt="" style="width:52px; height:52px;" />
+      <h2 class="site-title" style="margin:0; font-size: 22px;"><a href="index.html" style="text-decoration:none;">Basque Wine Imports</a></h2>
+    </div>
+    <nav style="display:flex; gap: 28px; flex-wrap: nowrap;">
+      <div class="nav-item nav-item--active"><a href="index.html">Home</a></div>
+      <div class="nav-item"><a href="about.html">About</a></div>
+      <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+      <div class="nav-item"><a href="events.html">Events</a></div>
+      <div class="nav-item"><a href="blog.html">Journal</a></div>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero / Welcome ============ -->
+<section class="page-section light">
+  <div class="wrap">
+    <code style="display:block; margin-bottom: 18px;">Founded 2024 · Kansas City</code>
+    <h1 style="margin: 0 0 40px; white-space: nowrap;">Welcome to <em>Basque Wine Imports</em></h1>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;">
+      <div>
+        <p style="font-size: 18px; line-height: 1.65; margin: 0 0 20px;">Where passion for exceptional wines meets the heartland of America. Founded in 2024 and based in Kansas City, we specialize in curating a unique selection of wines from the Basque region, bringing the bold flavors and storied traditions of this extraordinary area directly to your table.</p>
+        <p style="font-size: 18px; line-height: 1.65; margin: 0 0 28px;">Our mission is to connect wine lovers with the authentic taste of Basque culture by partnering with artisanal producers who craft wines that embody the spirit of their land. Whether you're a seasoned sommelier or just beginning your wine journey, we're here to share the diversity and excellence of Basque winemaking, one bottle at a time. Cheers to new connections and unforgettable flavors!</p>
+        <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn btn--primary btn--medium" href="wines.html">Meet the wines</a>
+          <a class="btn btn--secondary btn--medium" href="about.html">About</a>
+        </div>
+      </div>
+      <div style="aspect-ratio: 4/5; background: #E6ECE0; background-image: url('assets/grapes.jpg'); background-size: cover; background-position: center;"></div>
+    </div>
+  </div>
+</section>
+
+<div class="bwi-rule" style="max-width: 1180px; margin: 0 auto; padding: 0 40px;">✶ Topa ✶</div>
+
+<!-- ============ Our Wines ============ -->
+<section class="page-section light">
+  <div class="wrap">
+    <div style="display:flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 48px;">
+      <div>
+        <code style="display:block; margin-bottom: 12px;">Our Wines</code>
+        <h2 style="margin: 0; white-space: nowrap;">Six bottles, <em>two producers</em></h2>
+      </div>
+      <a class="btn btn--tertiary btn--medium" href="wines.html" style="flex-shrink:0;">View all →</a>
+    </div>
+
+    <div class="products collection-content-wrapper" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/botella-zura-v2.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Gorka Izagirre</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Zura</h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">A full-bodied, single-varietal white, fermented and aged in French oak. <em>Sur lie</em>. 100% Hondarrabi Zerratia.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">White</span>
+          <span class="bwi-pill">Oak</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Zura.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/botella-ilun.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Gorka Izagirre</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Ilun</h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">An unexpected and delightful Basque red — not your grandmother's red wine. 100% Hondarrabi Beltza.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">Red</span>
+          <span class="bwi-pill">Light</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Ilun.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/botella-gorka-izagirre.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Gorka Izagirre</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Gorka <em>Izagirre</em></h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">The winery's eponymous white blend. Notes of fresh apple and citrus. 50/50 Hondarrabi Zuri &amp; Zerratia.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">White</span>
+          <span class="bwi-pill">Blend</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Gorka-Izagirre.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://txakolizudugarai.com/wp-content/uploads/2022/12/Zudugarai-brut-nature-2020-Getariako-Txakolina.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Zudugarai</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Zudugarai <em>Sparkling</em></h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">A traditional-method sparkler aged 26 months on the lees. Nose of fresh grass and honey. 80/20 Hondarrabi Zuri &amp; Beltza.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">Sparkling</span>
+          <span class="bwi-pill">26 mo. lees</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Zudugarai-Sparkling.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://txakolizudugarai.com/wp-content/uploads/2020/11/txakoli-zudugarai-blanco-getariako-txakolina.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Zudugarai</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Zudugarai <em>White</em></h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">Intense nose of white fruit and citrus. Balanced acidity on the palate, with a saline finish. 100% Hondarrabi Zuri.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">White</span>
+          <span class="bwi-pill">Saline</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Zudugarai-White.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://txakolizudugarai.com/wp-content/uploads/2020/11/txakoli-zudugarai-rosado-getariako-txakolina.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Zudugarai</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Zudugarai <em>Rosé</em></h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">Fermented in stainless steel with native yeasts. Red fruits, lime, citrus, minerals. 60% Hondarrabi Beltza, 40% Hondarrabi Zuri.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">Rosé</span>
+          <span class="bwi-pill">Native yeast</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Zudugarai-Rose.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Full-bleed photo (Basque coast) ============ -->
+<section style="padding: 0;">
+  <div style="aspect-ratio: 21/8; background: #E6ECE0 url('assets/gaztelugatxe.jpg') center/cover; min-height: 480px;"></div>
+</section>
+
+<!-- ============ Producer feature (Gorka Izagirre) ============ -->
+<section class="page-section light">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items:center;">
+      <div style="padding: 8px 0;">
+        <code style="display:block; margin-bottom: 18px;">Producer Spotlight · 01</code>
+        <h2 style="margin: 0 0 22px; white-space: nowrap;">A morning at <em>Gorka Izagirre</em></h2>
+        <p style="font-size: 17px; line-height: 1.65; color:#2A4429; margin: 0 0 16px;">In the hills above Bilbao, just fifteen minutes from the city, the Izagirre family farms more than forty hectares of steep, southeast-facing vineyards — each one rooted in old-vine Hondarrabi Zuri, Hondarrabi Zerratia, and Hondarrabi Beltza. Cool Atlantic air, constant drizzle, and a sea breeze off the Bay of Biscay shape every bottle.</p>
+        <p style="font-size: 17px; line-height: 1.65; color:#5A7152; margin: 0 0 28px;">Quietly opinionated, generously poured, and unmistakably of the place. We brought back four bottles.</p>
+        <div>
+          <a class="btn btn--primary btn--medium" href="blog.html#post-gorka">Read the visit</a>
+        </div>
+      </div>
+      <div style="aspect-ratio: 4/3; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/bodega-portada.jpg') center/cover;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Gorka Izagirre photo strip ============ -->
+<section style="padding: 0;">
+  <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 0;">
+    <div style="aspect-ratio: 4/5; background: #E6ECE0 url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-1.jpg') center/cover;"></div>
+    <div style="aspect-ratio: 4/5; background: #E6ECE0 url('https://www.gorkaizagirre.com/wp-content/uploads/bodega-card-4.jpg') center/cover;"></div>
+    <div style="aspect-ratio: 4/5; background: #E6ECE0 url('https://www.gorkaizagirre.com/wp-content/uploads/gorka-izagirre-home-momento.jpg') center/cover;"></div>
+  </div>
+</section>
+
+<!-- ============ Hondarrabi varieties ============ -->
+<section class="page-section light">
+  <div class="wrap">
+    <div style="margin-bottom: 40px; max-width: 70ch;">
+      <code style="display:block; margin-bottom: 12px;">The Grapes</code>
+      <h2 style="margin: 0 0 16px; white-space: nowrap;">Three <em>indigenous</em> varieties</h2>
+      <p style="font-size: 16px; line-height: 1.65; color:#5A7152; margin: 0;">Native Atlantic grapes that grow in small, concentrated clusters — brimming with character, and only here.</p>
+    </div>
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+      <article style="display:flex; flex-direction:column; gap: 14px;">
+        <div style="aspect-ratio: 1/1; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-zuri.jpg') center/cover;"></div>
+        <code style="display:block;">White</code>
+        <h3 style="font-size: 22px; margin: 0;">Hondarrabi <em>Zuri</em></h3>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color:#5A7152;">Fresh, joyful, fruity and powerful.</p>
+      </article>
+      <article style="display:flex; flex-direction:column; gap: 14px;">
+        <div style="aspect-ratio: 1/1; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-zerratia.jpg') center/cover;"></div>
+        <code style="display:block;">White</code>
+        <h3 style="font-size: 22px; margin: 0;">Hondarrabi <em>Zerratia</em></h3>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color:#5A7152;">Elegant, voluminous, complex — with notes of white flowers.</p>
+      </article>
+      <article style="display:flex; flex-direction:column; gap: 14px;">
+        <div style="aspect-ratio: 1/1; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-beltza.jpg') center/cover;"></div>
+        <code style="display:block;">Red</code>
+        <h3 style="font-size: 22px; margin: 0;">Hondarrabi <em>Beltza</em></h3>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color:#5A7152;">Fruity, deep, herbaceous, and exclusive.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Visit the Basque Country ============ -->
+<section class="page-section dark" style="background:#2A4429; color:#FFFFFF;">
+  <div class="wrap" style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items:center;">
+    <div style="background-image: url('https://images.squarespace-cdn.com/content/v1/67842d17afa23d688ef14f3f/91903890-eb4f-4409-9a86-0eae2a37b13c/3+of+5.jpg?format=2500w'), linear-gradient(180deg, #2A4429, #1a2d19); background-size: cover; background-position: center; aspect-ratio: 4/3; position: relative;">
+      <div style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(42,68,41,0.15) 0%, rgba(42,68,41,0.45) 100%);"></div>
+    </div>
+    <div style="color:#FFFFFF;">
+      <code style="display:block; margin-bottom: 18px; color:#8DA63F;">Visit the Basque Country</code>
+      <h2 style="margin: 0 0 22px; color:#FFFFFF; white-space: nowrap;">Go to the <em style="color:#8DA63F;">source</em></h2>
+      <p style="font-size: 17px; line-height: 1.6; color:#E6ECE0; margin: 0 0 28px;">A short, opinionated guide to the towns, cellars, and pintxos bars worth the trip. The places we visit when we go to taste, taste again, and pick what comes home in the next container.</p>
+      <div>
+        <a class="btn btn--primary btn--medium" href="events.html#trip-2027">Plan a visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Upcoming Events ============ -->
+<section class="page-section light">
+  <div class="wrap">
+    <div style="margin-bottom: 40px;">
+      <code style="display:block; margin-bottom: 12px;">Calendar</code>
+      <h2 style="margin: 0; white-space: nowrap;">Upcoming <em>events</em></h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+
+      <article style="display:flex; flex-direction:column; gap: 18px;">
+        <div style="aspect-ratio: 4/5; background: #F1F4ED url('assets/bar-vin.jpg') center/cover;"></div>
+        <code style="display:block;">May 26 · 5:30 PM</code>
+        <h3 style="font-size: 26px; margin: 0;">Bar Vin <em>Wine Tasting</em></h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color:#5A7152;">Our Passport Series is headed to the Spanish Basque Country, and you're invited to drink, learn, and discover hidden gem summer wines at Bar Vin. Tickets are $40 per person—reserve your spot today for an unforgettable evening of world-class flavors and great company!</p>
+        <div style="margin-top: auto;">
+          <a class="btn btn--primary btn--small" href="https://square.link/u/QClNl3Ca" target="_blank" rel="noopener">Get tickets</a>
+        </div>
+      </article>
+
+      <article style="display:flex; flex-direction:column; gap: 18px;">
+        <div style="aspect-ratio: 4/5; background: #F1F4ED url('assets/vicia-garden.jpg') center/cover;"></div>
+        <code style="display:block;">May 27 · 6:00 PM</code>
+        <h3 style="font-size: 26px; margin: 0;">Vicia <em>Wine Tasting</em></h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color:#5A7152;">Vicia Wine &amp; Spirits School invites you to drink, learn, and discover exceptional pours out in our beautiful Wine Garden! Led by industry experts, this monthly educational series pairs curated tastings with perfectly matched small snacks and insider knowledge. Tickets are $30 per person.</p>
+        <div style="margin-top: auto;">
+          <a class="btn btn--primary btn--small" href="https://www.opentable.com/r/vicia-saint-louis" target="_blank" rel="noopener">Get tickets</a>
+        </div>
+      </article>
+
+      <article style="display:flex; flex-direction:column; gap: 18px;">
+        <div style="aspect-ratio: 4/5; background: #F1F4ED url('assets/women-in-wine.avif') center/cover;"></div>
+        <code style="display:block;">June 10 · 6:00–9:00 PM</code>
+        <h3 style="font-size: 26px; margin: 0;">Women In Wine, <em>Wine Dinner</em></h3>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color:#5A7152;">Join Women in Wine KC for "A Global Tasting" in the tranquil courtyard patio at Affäre on June 10th. Starting at $78 per ticket, this exclusive evening features a vibrant celebration of wine, culture, and discovery.</p>
+        <div style="margin-top: auto;">
+          <a class="btn btn--primary btn--small" href="about.html#contact">Ask about tickets</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Photo gallery before footer ============ -->
+<section class="page-section light" style="padding-top: 60px; padding-bottom: 0;">
+  <div class="wrap" style="margin-bottom: 40px;">
+    <code style="display:block; margin-bottom: 12px;">From the Basque Country</code>
+    <h2 style="margin: 0; white-space: nowrap;">Where the <em>wines are from</em></h2>
+  </div>
+</section>
+
+<!-- ============ Photo strip (Basque country) ============ -->
+<section style="padding: 0;">
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 0;">
+    <div style="aspect-ratio: 3/4; background:#E6ECE0 url('assets/gaztelugatxe.jpg') center/cover;"></div>
+    <div style="aspect-ratio: 3/4; background:#E6ECE0 url('assets/basque-village.jpg') center/cover;"></div>
+    <div style="aspect-ratio: 3/4; background:#E6ECE0 url('assets/basque-villa.jpg') center/cover;"></div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap" style="padding: 64px 0 32px;">
+    <div style="display:grid; grid-template-columns: 1.6fr 1fr 1.2fr 1.4fr; gap: 48px; align-items: start;">
+      <div>
+        <div style="display:flex; align-items:center; gap: 14px; margin-bottom: 18px;">
+          <img src="assets/topa-logo.webp" alt="" style="width:42px; height:42px; background:#FFFFFF; border-radius: 999px; padding: 3px;" />
+          <h3 style="font-size: 18px; margin: 0; white-space: nowrap;">Basque Wine Imports</h3>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; max-width: 38ch;">Curated wines from the Basque Country. Founded in 2024 in Kansas City.</p>
+        <div style="display: flex; gap: 10px; align-items: center; margin-top: 14px;">
+          <img src="assets/basque-flag.png" alt="Ikurriña — Basque flag" title="Topa — a nod to the Basque Country" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+          <img src="assets/kc-flag.png" alt="Kansas City flag" title="Home base — Kansas City" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Explore</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="index.html">Home</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="about.html">About</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="http://instagram.com/basquewineimports">@basquewineimports</a></p>
+        <p style="margin: 6px 0; font-size: 14px;">13725 W. 108th St.<br/>Lenexa, KS 66215</p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
+        <div class="form-wrapper newsletter-form">
+          <div style="display:flex; flex-direction: column; gap: 8px;">
+            <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="margin: 48px 0 24px;" />
+    <div style="display:flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing:0.18em; text-transform: uppercase;">
+      <span>© 2025 Basque Wine Imports</span>
+      <span>13725 W. 108th St. · Lenexa, KS 66215</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

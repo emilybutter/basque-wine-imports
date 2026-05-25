@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Our Wines · Basque Wine Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Libre Baskerville", Georgia, serif; background: #FFFFFF; color: #2A4429; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+  .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 40px; }
+  .page-section { padding: 80px 0; }
+  .btn:not(.btn--tertiary) { white-space: nowrap; }
+  .btn--tertiary { white-space: nowrap; }
+  .nav-item a { white-space: nowrap; }
+
+  .grid-item { display: flex; flex-direction: column; }
+  .grid-item > p { flex: 1; }
+  .grid-item > a.btn--tertiary { margin-top: auto; }
+
+  /* Wines page */
+  .wines-hero {
+    background: #2A4429;
+    color: #FFFFFF;
+    padding: 96px 0 72px;
+  }
+  .wines-hero h1 { color: #FFFFFF; margin: 0; }
+  .wines-hero em { color: #8DA63F; }
+  .wines-hero code { color: #8DA63F; }
+
+  /* Producer banner */
+  .producer-banner {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 56px;
+    align-items: center;
+    padding: 72px 0;
+  }
+  .producer-banner.alt {
+    grid-template-columns: 1.3fr 1fr;
+  }
+  .producer-banner .img {
+    aspect-ratio: 4/3;
+    background: #F1F4ED center/cover;
+  }
+  .producer-banner .copy code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #5A7152;
+    display: block; margin-bottom: 14px;
+  }
+  .producer-banner .copy h2 { margin: 0 0 18px; }
+  .producer-banner .copy p { font-size: 17px; line-height: 1.7; color: #2A4429; margin: 0 0 14px; }
+  .producer-banner .copy .meta-row {
+    display: flex; flex-wrap: wrap; gap: 24px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #E6ECE0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #5A7152;
+  }
+
+  /* Grape card */
+  .grape-card {
+    display: flex; flex-direction: column; gap: 14px;
+    text-decoration: none; color: inherit;
+    transition: transform .15s ease;
+  }
+  .grape-card:hover { transform: translateY(-2px); }
+  .grape-card .img {
+    aspect-ratio: 1/1;
+    background: #F1F4ED center/cover;
+  }
+  .grape-card code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #5A7152;
+  }
+  .grape-card h3 { margin: 0; font-size: 22px; }
+  .grape-card .desc { margin: 0; font-size: 14.5px; line-height: 1.6; color: #5A7152; flex: 1; }
+  .grape-card .read-more {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #2A4429;
+    margin-top: 6px;
+    border-bottom: 1px solid currentColor;
+    align-self: flex-start;
+    padding-bottom: 2px;
+  }
+
+  /* Pill */
+  .bwi-pill {
+    display: inline-block;
+    padding: 3px 10px 4px;
+    margin-right: 4px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #5A7152;
+    background: transparent;
+    border: 1px solid #D9E0D3;
+    border-radius: 999px;
+  }
+  .bwi-pill--moss {
+    color: #FFFFFF;
+    background: #5A7152;
+    border-color: #5A7152;
+  }
+
+  /* Quick-filter chips at top */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 56px; }
+  .chip {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 9px 16px;
+    border: 1px solid #E6ECE0;
+    background: #FFFFFF;
+    color: #5A7152;
+    border-radius: 999px;
+  }
+  .chip.is-active { background: #2A4429; color: #FFFFFF; border-color: #2A4429; }
+  .chip strong { font-weight: 500; margin-left: 6px; opacity: 0.65; }
+
+  /* Buttons on dark green sections — explicit overrides so they're visible
+     against the section's dark bg in both preview and production. */
+  .on-dark--primary {
+    background: #8DA63F !important;
+    border-color: #8DA63F !important;
+    color: #1a2d19 !important;
+  }
+  .on-dark--primary:hover {
+    background: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+    color: #1a2d19 !important;
+  }
+  .on-dark--secondary {
+    background: transparent !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+  }
+  .on-dark--secondary:hover {
+    background: #FFFFFF !important;
+    color: #1a2d19 !important;
+    border-color: #FFFFFF !important;
+  }
+</style>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="announcement-bar">
+  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;">Now pouring in Kansas City · Hello from the Basque Country</p></div>
+</div>
+
+<!-- ============ Header ============ -->
+<header class="header">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; padding-top: 22px; padding-bottom: 22px;">
+    <div style="display:flex; align-items:center; gap: 14px;">
+      <img src="assets/topa-logo.webp" alt="" style="width:52px; height:52px;" />
+      <h2 class="site-title" style="margin:0; font-size: 22px;"><a href="index.html" style="text-decoration:none;">Basque Wine Imports</a></h2>
+    </div>
+    <nav style="display:flex; gap: 28px; flex-wrap: nowrap;">
+      <div class="nav-item"><a href="index.html">Home</a></div>
+      <div class="nav-item"><a href="about.html">About</a></div>
+      <div class="nav-item nav-item--active"><a href="wines.html">Our Wines</a></div>
+      <div class="nav-item"><a href="events.html">Events</a></div>
+      <div class="nav-item"><a href="blog.html">Journal</a></div>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="wines-hero">
+  <div class="wrap">
+    <code style="display:block; margin-bottom: 18px;">Our portfolio · Atlantic Basque Country</code>
+    <h1 style="white-space: nowrap;">Wines from the <em>Basque coast</em></h1>
+    <p style="font-size: 18px; line-height: 1.65; color:#E6ECE0; max-width: 62ch; margin: 22px 0 0;">Hand-picked from two family producers — Gorka Izagirre in the hills above Bilbao, and Zudugarai on the cliffs above Getaria. All rooted in indigenous Hondarrabi grapes that grow nowhere else on earth.</p>
+  </div>
+</section>
+
+<!-- ============ Filter chips (visual only) ============ -->
+<section class="page-section" style="padding-bottom: 0;">
+  <div class="wrap">
+    <div class="chips">
+      <span class="chip is-active">All <strong>6</strong></span>
+      <span class="chip">Whites <strong>4</strong></span>
+      <span class="chip">Red <strong>1</strong></span>
+      <span class="chip">Rosé <strong>1</strong></span>
+      <span class="chip">Sparkling <strong>1</strong></span>
+      <span class="chip">Gorka Izagirre <strong>3</strong></span>
+      <span class="chip">Zudugarai <strong>3</strong></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Gorka Izagirre producer banner ============ -->
+<section style="background:#F1F4ED;">
+  <div class="wrap">
+    <div class="producer-banner alt">
+      <div class="img" style="background-image: url('assets/gorka-lineup.webp');"></div>
+      <div class="copy">
+        <code>Producer · 01</code>
+        <h2 style="margin: 0 0 18px; white-space: nowrap;"><em>Gorka Izagirre</em></h2>
+        <p>In the hills above Bilbao, just fifteen minutes from the city, the Izagirre family farms more than forty hectares of steep, southeast-facing vineyards — each one rooted in old-vine Hondarrabi Zuri, Zerratia, and Beltza. Cool Atlantic air, constant drizzle, and a sea breeze off the Bay of Biscay shape every bottle.</p>
+        <p style="color:#5A7152;">Quietly opinionated, generously poured, and unmistakably of the place. We brought back four bottles.</p>
+        <div class="meta-row">
+          <span>DO Bizkaiko Txakolina</span>
+          <span>Larrabetzu, Bizkaia</span>
+          <span>Three Hondarrabi varieties</span>
+        </div>
+        <div style="margin-top: 28px; display:flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn btn--primary btn--medium" href="blog.html#post-gorka">Read the visit</a>
+          <a class="btn btn--tertiary btn--medium" href="https://www.gorkaizagirre.com/en/" target="_blank" rel="noopener">gorkaizagirre.com →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Gorka Izagirre wines (3) ============ -->
+<section class="page-section">
+  <div class="wrap">
+    <div style="margin-bottom: 40px;">
+      <code style="display:block; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">From Gorka Izagirre</code>
+      <h2 style="margin: 0; white-space: nowrap;">The <em>Bizkaian</em> lineup</h2>
+    </div>
+
+    <div class="grid container clear" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 56px 40px;">
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/botella-zura-v2.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Gorka Izagirre</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Zura</h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">A full-bodied, single-varietal white, fermented and aged in French oak. <em>Sur lie</em>. 100% Hondarrabi Zerratia.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">White</span>
+          <span class="bwi-pill">Oak</span>
+          <span class="bwi-pill">Sur lie</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Zura.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/botella-ilun.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Gorka Izagirre</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Ilun</h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">An unexpected and delightful Basque red — not your grandmother's red wine. 100% Hondarrabi Beltza.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">Red</span>
+          <span class="bwi-pill">Light</span>
+          <span class="bwi-pill">Whole cluster</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Ilun.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://www.gorkaizagirre.com/wp-content/uploads/botella-gorka-izagirre.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Gorka Izagirre</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Gorka <em>Izagirre</em></h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">The winery's eponymous white blend. Notes of fresh apple and citrus. 50/50 Hondarrabi Zuri &amp; Zerratia.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">White</span>
+          <span class="bwi-pill">Blend</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Gorka-Izagirre.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Zudugarai producer banner ============ -->
+<section style="background:#F1F4ED;">
+  <div class="wrap">
+    <div class="producer-banner">
+      <div class="copy">
+        <code>Producer · 02</code>
+        <h2 style="margin: 0 0 18px; white-space: nowrap;"><em>Zudugarai</em></h2>
+        <p>On the cliffs above Getaria, the small Basque fishing village that gives the Getariako Txakolina DO its name, Zudugarai works steep coastal vineyards within sight of the Bay of Biscay. The estate is family-run, generally closed to the public, and tightly focused on three expressions of txakoli — a still white, a saline rosé, and a serious traditional-method sparkler.</p>
+        <p style="color:#5A7152;">Salt air, native yeasts, and a winemaker who picks one morning before sunrise. We brought back two cases of each.</p>
+        <div class="meta-row">
+          <span>DO Getariako Txakolina</span>
+          <span>Getaria, Gipuzkoa</span>
+          <span>Coastal, hand-harvested</span>
+        </div>
+        <div style="margin-top: 28px; display:flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn btn--tertiary btn--medium" href="https://txakolizudugarai.com/en/" target="_blank" rel="noopener">txakolizudugarai.com →</a>
+        </div>
+      </div>
+      <div class="img" style="background-image: url('assets/vineyard.jpg');"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Zudugarai wines (3) ============ -->
+<section class="page-section">
+  <div class="wrap">
+    <div style="margin-bottom: 40px;">
+      <code style="display:block; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">From Zudugarai</code>
+      <h2 style="margin: 0; white-space: nowrap;">The <em>Getariako</em> lineup</h2>
+    </div>
+
+    <div class="grid container clear" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 56px 40px;">
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://txakolizudugarai.com/wp-content/uploads/2020/11/txakoli-zudugarai-blanco-getariako-txakolina.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Zudugarai</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Zudugarai <em>White</em></h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">Intense nose of white fruit and citrus. Balanced acidity on the palate, with a saline finish. 100% Hondarrabi Zuri.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">White</span>
+          <span class="bwi-pill">Saline</span>
+          <span class="bwi-pill">Native yeast</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Zudugarai-White.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://txakolizudugarai.com/wp-content/uploads/2020/11/txakoli-zudugarai-rosado-getariako-txakolina.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Zudugarai</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Zudugarai <em>Rosé</em></h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">Fermented in stainless steel with native yeasts. Red fruits, lime, citrus, minerals. 60% Hondarrabi Beltza, 40% Hondarrabi Zuri.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">Rosé</span>
+          <span class="bwi-pill">Native yeast</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Zudugarai-Rose.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+      <article class="grid-item">
+        <div style="aspect-ratio: 3/4; background: #F1F4ED url('https://txakolizudugarai.com/wp-content/uploads/2022/12/Zudugarai-brut-nature-2020-Getariako-Txakolina.png') center/contain no-repeat; margin-bottom: 22px;"></div>
+        <code style="display:block; margin-bottom: 8px;">Zudugarai</code>
+        <h3 class="grid-title" style="font-size: 26px; margin: 0 0 8px;">Zudugarai <em>Sparkling</em></h3>
+        <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55;">A traditional-method sparkler aged 26 months on the lees. Nose of fresh grass and honey. 80/20 Hondarrabi Zuri &amp; Beltza.</p>
+        <div style="margin-bottom: 14px;">
+          <span class="bwi-pill bwi-pill--filled">Sparkling</span>
+          <span class="bwi-pill">26 mo. lees</span>
+          <span class="bwi-pill">Brut nature</span>
+        </div>
+        <a class="btn btn--tertiary btn--small" href="assets/tech-sheets/Zudugarai-Sparkling.pdf" target="_blank" rel="noopener">Download tech sheet</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Three indigenous grape varieties ============ -->
+<section class="page-section" style="background:#F1F4ED;">
+  <div class="wrap">
+    <div style="margin-bottom: 48px; max-width: 70ch;">
+      <code style="display:block; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">The grapes</code>
+      <h2 style="margin: 0 0 16px; white-space: nowrap;">Three <em>indigenous</em> varieties</h2>
+      <p style="font-size: 16px; line-height: 1.7; color:#5A7152; margin: 0;">Native Atlantic grapes that grow in small, concentrated clusters — brimming with character, and only here. Each variety has its own field notes on the journal.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+      <a class="grape-card" href="blog.html#post-zuri">
+        <div class="img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-zuri.jpg');"></div>
+        <code>White</code>
+        <h3>Hondarrabi <em>Zuri</em></h3>
+        <p class="desc">The Atlantic white. Fresh, joyful, saline — green apple and a thread of acidity that makes everything else on the table taste better. The grape behind every classic txakoli.</p>
+        <span class="read-more">Read the field note →</span>
+      </a>
+
+      <a class="grape-card" href="blog.html#post-zerratia">
+        <div class="img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-zerratia.jpg');"></div>
+        <code>White</code>
+        <h3>Hondarrabi <em>Zerratia</em></h3>
+        <p class="desc">The quieter sibling. Elegant, voluminous, complex — with notes of white flowers, baked apple, and the longest finish on the tasting bench. Often barrel-aged.</p>
+        <span class="read-more">Read the field note →</span>
+      </a>
+
+      <a class="grape-card" href="blog.html#post-beltza">
+        <div class="img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-beltza.jpg');"></div>
+        <code>Red</code>
+        <h3>Hondarrabi <em>Beltza</em></h3>
+        <p class="desc">Fruity, deep, herbaceous, exclusive. The coastal red that almost vanished — and that Gorka Izagirre has more of than anyone else on the planet. About six hectares, worldwide.</p>
+        <span class="read-more">Read the field note →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Stocking / retail CTA ============ -->
+<section class="page-section trade-cta" style="background:#2A4429; color:#FFFFFF; text-align:center;">
+  <div class="wrap-narrow">
+    <code style="display:block; margin-bottom: 14px; color:#8DA63F; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;">Trade &amp; retail</code>
+    <h2 style="color:#FFFFFF; margin: 0 0 16px;">Carry the lineup at <em style="color:#8DA63F;">your place</em></h2>
+    <p style="font-size: 17px; line-height: 1.65; color:#E6ECE0; max-width: 52ch; margin: 0 auto 28px;">For restaurants and retailers in Kansas City, St. Louis, and select Midwest markets. Write to Kerri for the full portfolio, pricing, and samples.</p>
+    <div style="display:flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a class="btn btn--primary btn--medium on-dark on-dark--primary" href="about.html#contact">Get in touch</a>
+      <a class="btn btn--secondary btn--medium on-dark on-dark--secondary" href="events.html">Upcoming tastings</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap" style="padding: 64px 0 32px;">
+    <div style="display:grid; grid-template-columns: 1.6fr 1fr 1.2fr 1.4fr; gap: 48px; align-items: start;">
+      <div>
+        <div style="display:flex; align-items:center; gap: 14px; margin-bottom: 18px;">
+          <img src="assets/topa-logo.webp" alt="" style="width:42px; height:42px; background:#FFFFFF; border-radius: 999px; padding: 3px;" />
+          <h3 style="font-size: 18px; margin: 0; white-space: nowrap;">Basque Wine Imports</h3>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; max-width: 38ch;">Curated wines from the Basque Country. Founded in 2024 in Kansas City.</p>
+        <div style="display: flex; gap: 10px; align-items: center; margin-top: 14px;">
+          <img src="assets/basque-flag.png" alt="Ikurriña — Basque flag" title="Topa — a nod to the Basque Country" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+          <img src="assets/kc-flag.png" alt="Kansas City flag" title="Home base — Kansas City" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Explore</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="index.html">Home</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="about.html">About</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="mailto:kerri@basquewineimports.com">kerri@basquewineimports.com</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="http://instagram.com/basquewineimports">@basquewineimports</a></p>
+        <p style="margin: 6px 0; font-size: 14px;">13725 W. 108th St.<br/>Lenexa, KS 66215</p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
+        <div class="form-wrapper newsletter-form">
+          <div style="display:flex; flex-direction: column; gap: 8px;">
+            <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="margin: 48px 0 24px;" />
+    <div style="display:flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing:0.18em; text-transform: uppercase;">
+      <span>© 2025 Basque Wine Imports</span>
+      <span>13725 W. 108th St. · Lenexa, KS 66215</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Events · Basque Wine Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Libre Baskerville", Georgia, serif; background: #FFFFFF; color: #2A4429; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+  .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 40px; }
+  .page-section { padding: 80px 0; }
+  .btn:not(.btn--tertiary) { white-space: nowrap; }
+  .btn--tertiary { white-space: nowrap; }
+  .nav-item a { white-space: nowrap; }
+
+  /* Events page */
+  .events-hero {
+    background: #2A4429;
+    color: #FFFFFF;
+    padding: 96px 0 72px;
+  }
+  .events-hero h1 { color: #FFFFFF; margin: 0; }
+  .events-hero em { color: #8DA63F; }
+  .events-hero code { color: #8DA63F; }
+
+  .filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+  .filter-chip {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 9px 16px;
+    border: 1px solid #E6ECE0;
+    background: #FFFFFF;
+    color: #5A7152;
+    border-radius: 999px;
+    cursor: default;
+  }
+  .filter-chip.is-active {
+    background: #2A4429; color: #FFFFFF; border-color: #2A4429;
+  }
+  .filter-chip strong {
+    font-weight: 500;
+    margin-left: 6px;
+    opacity: 0.65;
+  }
+
+  /* Big "next up" feature event */
+  .next-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    background: #F1F4ED;
+    padding: 56px;
+  }
+  .next-up .img {
+    aspect-ratio: 4/5;
+    background: center/cover;
+  }
+  .next-up .label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #8DA63F; margin-bottom: 16px;
+  }
+  .next-up h2 { margin: 0 0 18px; }
+  .next-up .summary { font-size: 17px; line-height: 1.65; color: #2A4429; margin: 0 0 28px; }
+  .next-up dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 28px;
+    margin: 0 0 32px;
+    padding: 24px 0;
+    border-top: 1px solid #D9E0D3;
+    border-bottom: 1px solid #D9E0D3;
+  }
+  .next-up dt {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #5A7152;
+    margin-bottom: 6px;
+  }
+  .next-up dd { margin: 0; font-size: 16px; }
+
+  /* Smaller event cards */
+  .event-card {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-top: 1px solid #E6ECE0;
+    align-items: start;
+  }
+  .event-card:last-child { border-bottom: 1px solid #E6ECE0; }
+  .event-card .img {
+    aspect-ratio: 4/3;
+    background: center/cover;
+  }
+  .event-card .date-block {
+    font-family: "IBM Plex Mono", monospace;
+    color: #5A7152;
+    margin-bottom: 14px;
+  }
+  .event-card .date-block .day {
+    display: block;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .event-card .date-block .num {
+    display: block;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 56px;
+    line-height: 1;
+    color: #2A4429;
+    margin: 6px 0 2px;
+  }
+  .event-card .date-block .month {
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .event-card .body { display: flex; flex-direction: column; }
+  .event-card .meta-row {
+    display: flex; gap: 24px; flex-wrap: wrap;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #5A7152;
+    margin-bottom: 14px;
+  }
+  .event-card h3 { font-size: 28px; margin: 0 0 12px; }
+  .event-card p { margin: 0 0 22px; font-size: 16px; line-height: 1.6; color: #5A7152; }
+  .event-card .actions { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+
+  /* Past events */
+  .past-list { border-top: 1px solid #E6ECE0; }
+  .past-row {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    gap: 32px;
+    padding: 24px 0;
+    border-bottom: 1px solid #E6ECE0;
+    align-items: center;
+  }
+  .past-row .pastdate {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #5A7152;
+  }
+  .past-row h4 { margin: 0; font-size: 19px; }
+  .past-row .venue {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #5A7152;
+    margin-top: 4px;
+  }
+
+  /* Private tasting CTA */
+  .private-tasting {
+    background: #2A4429;
+    color: #FFFFFF;
+    padding: 96px 0;
+  }
+  .private-tasting h2 { color: #FFFFFF; margin: 0 0 16px; }
+  .private-tasting em { color: #8DA63F; }
+  .private-tasting code { color: #8DA63F; }
+  .private-tasting p { color: #E6ECE0; font-size: 17px; line-height: 1.65; max-width: 56ch; margin: 0 0 28px; }
+</style>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="announcement-bar">
+  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;">Now pouring in Kansas City · Hello from the Basque Country</p></div>
+</div>
+
+<!-- ============ Header ============ -->
+<header class="header">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; padding-top: 22px; padding-bottom: 22px;">
+    <div style="display:flex; align-items:center; gap: 14px;">
+      <img src="assets/topa-logo.webp" alt="" style="width:52px; height:52px;" />
+      <h2 class="site-title" style="margin:0; font-size: 22px;"><a href="index.html" style="text-decoration:none;">Basque Wine Imports</a></h2>
+    </div>
+    <nav style="display:flex; gap: 28px; flex-wrap: nowrap;">
+      <div class="nav-item"><a href="index.html">Home</a></div>
+      <div class="nav-item"><a href="about.html">About</a></div>
+      <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+      <div class="nav-item nav-item--active"><a href="events.html">Events</a></div>
+      <div class="nav-item"><a href="blog.html">Journal</a></div>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="events-hero">
+  <div class="wrap">
+    <code style="display:block; margin-bottom: 18px;">Events · Spring &amp; summer 2026</code>
+    <h1 style="white-space: nowrap;">Pour, taste, <em>compare</em></h1>
+    <p style="font-size: 18px; line-height: 1.65; color:#E6ECE0; max-width: 60ch; margin: 22px 0 0;">Public tastings, wine dinners, and the occasional private event with our restaurant and retail partners. Most pours include three to six wines from the Basque Country.</p>
+  </div>
+</section>
+
+<!-- ============ Filters + Next up ============ -->
+<section class="page-section">
+  <div class="wrap">
+    <div class="filters">
+      <span class="filter-chip is-active">All upcoming <strong>4</strong></span>
+      <span class="filter-chip">Hermann, MO <strong>1</strong></span>
+      <span class="filter-chip">St. Louis <strong>1</strong></span>
+      <span class="filter-chip">Kansas City <strong>1</strong></span>
+      <span class="filter-chip">Travel <strong>1</strong></span>
+    </div>
+
+    <!-- ============ Next up ============ -->
+    <div class="next-up">
+      <div class="img" style="background-image: url('assets/bar-vin.jpg');"></div>
+      <div>
+        <div class="label">Next up · Tomorrow</div>
+        <h2 style="white-space: nowrap;">Passport Series at <em>Bar Vin</em></h2>
+        <p class="summary">Spanish Basque Country — where the wines are bright and built for good times. Kerri leads the night at Bar Vin in Hermann, Missouri, pouring six bottles from small family producers you won't find just anywhere, and telling the stories that make them matter.</p>
+        <dl>
+          <div><dt>Date</dt><dd>Tuesday, May 26</dd></div>
+          <div><dt>Time</dt><dd>5:30 – 7:00 PM <span style="color:#5A7152;">(doors 5:15)</span></dd></div>
+          <div><dt>Venue</dt><dd>Bar Vin · 114 E 4th St, Hermann, MO</dd></div>
+          <div><dt>Tickets</dt><dd>$40 per person</dd></div>
+        </dl>
+        <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn btn--primary btn--medium" href="https://square.link/u/QClNl3Ca" target="_blank" rel="noopener">Reserve a seat</a>
+          <a class="btn btn--secondary btn--medium" href="blog.html#post-barvin">Read the preview</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Upcoming events list ============ -->
+<section class="page-section" style="padding-top: 0;">
+  <div class="wrap">
+    <div style="display:flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 24px;">
+      <div>
+        <code style="display:block; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">Upcoming</code>
+        <h2 style="margin: 0; white-space: nowrap;">Also <em>on the calendar</em></h2>
+      </div>
+    </div>
+
+    <!-- ============ Vicia ============ -->
+    <article class="event-card">
+      <div class="img" style="background-image: url('assets/vicia-garden.jpg');"></div>
+      <div class="body">
+        <div class="date-block">
+          <span class="day">Wednesday</span>
+          <span class="num">27</span>
+          <span class="month">May 2026</span>
+        </div>
+        <div class="meta-row">
+          <span>6:00 PM</span>
+          <span>Vicia Wine Garden · St. Louis</span>
+          <span>$30 / person</span>
+          <span>Public tasting</span>
+        </div>
+        <h3>Vicia <em>Wine Tasting</em></h3>
+        <p>Vicia Wine &amp; Spirits School invites you to drink, learn, and discover exceptional pours out in our beautiful Wine Garden! Led by Kerri Lesh, this monthly educational series pairs curated tastings with perfectly matched small snacks and insider knowledge.</p>
+        <div class="actions">
+          <a class="btn btn--primary btn--small" href="https://www.opentable.com/r/vicia-saint-louis" target="_blank" rel="noopener">Reserve on OpenTable</a>
+          <a class="btn btn--tertiary btn--small" href="blog.html#post-vicia">Read the preview →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ Women in Wine ============ -->
+    <article class="event-card">
+      <div class="img" style="background-image: url('assets/women-in-wine.avif');"></div>
+      <div class="body">
+        <div class="date-block">
+          <span class="day">Wednesday</span>
+          <span class="num">10</span>
+          <span class="month">June 2026</span>
+        </div>
+        <div class="meta-row">
+          <span>6:00 – 9:00 PM</span>
+          <span>Affäre · Crossroads, KC</span>
+          <span>From $78</span>
+          <span>Wine dinner</span>
+        </div>
+        <h3>Women in Wine KC, <em>A Global Tasting</em></h3>
+        <p>Join Women in Wine KC for "A Global Tasting" in the tranquil courtyard patio at Affäre on June 10th. A four-course evening featuring four wines from Basque Wine Imports to start, then a journey through three more regions with the chef's menu.</p>
+        <div class="actions">
+          <a class="btn btn--primary btn--small" href="about.html#contact">Ask about tickets</a>
+          <a class="btn btn--tertiary btn--small" href="blog.html#post-affare">Read the preview →</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ Travel · Save the date ============ -->
+<section id="trip-2027" style="background: #2A4429; color: #FFFFFF; padding: 96px 0;">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
+      <div style="display:flex; flex-direction: column; gap: 16px;">
+        <img src="assets/basque-trip-map.png" alt="Map of the Basque Country tour route — Bilbao, Getaria, San Sebastián, Bayonne, Espelette, Saint-Jean-de-Luz, Pamplona, Laguardia, Barillas" style="display:block; width:100%; height:auto; border: 6px solid #FFFFFF;" />
+        <img src="assets/gorka-collage.png" alt="Gorka Izagirre wines, grapes, and pintxos with jamón" style="display:block; width:100%; height:auto;" />
+      </div>
+      <div>
+        <code style="display:block; margin-bottom: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8DA63F;">Travel</code>
+        <h2 style="color: #FFFFFF; margin: 0 0 22px;">Save the date:<br/><em style="color: #8DA63F; white-space: nowrap;">2027 Basque Country Trip</em></h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #E6ECE0; margin: 0 0 22px;">Nine days, eight nights. A small-group cultural, culinary, and wine journey from Bilbao to San Sebastián, with a full day across the border in the French Basque Country. Exclusive tastings at both Gorka Izagirre and Zudugarai — the two producers we represent — and a farewell dinner inside a private Basque <em>sociedad gastronómica</em>.</p>
+        <dl style="display:grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; margin: 0 0 32px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.18); border-bottom: 1px solid rgba(255,255,255,0.18);">
+          <div>
+            <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8DA63F; margin-bottom: 6px;">Dates</dt>
+            <dd style="margin: 0; font-size: 16px; color: #FFFFFF;">Fall 2027 · 9 days / 8 nights</dd>
+          </div>
+          <div>
+            <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8DA63F; margin-bottom: 6px;">Group</dt>
+            <dd style="margin: 0; font-size: 16px; color: #FFFFFF;">Small group · limited spots</dd>
+          </div>
+          <div>
+            <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8DA63F; margin-bottom: 6px;">Route</dt>
+            <dd style="margin: 0; font-size: 16px; color: #FFFFFF;">Bilbao · Rioja · Pamplona<br/>San Sebastián · French Basque</dd>
+          </div>
+          <div>
+            <dt style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #8DA63F; margin-bottom: 6px;">Hosted by</dt>
+            <dd style="margin: 0; font-size: 16px; color: #FFFFFF;">Get Away à la Carte<br/>+ Dr. Kerri Lesh, BWI</dd>
+          </div>
+        </dl>
+        <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn btn--primary btn--medium" href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener">Book on Get Away à la Carte</a>
+          <a class="btn btn--secondary btn--medium" href="blog.html#post-trip-2027">Read the itinerary</a>
+        </div>
+        <p style="font-size: 13px; line-height: 1.6; color: rgba(230, 236, 224, 0.75); margin: 22px 0 0;">Booked through Get Away à la Carte. Pricing &amp; registration details on their site. Eight nights of accommodations, coach transport, gratuities, meals as listed (wine at lunch &amp; dinner), and excursions included. Airfare is not. Our 2026 trip filled up the week it was announced — early bookings get priority.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="private-tasting">
+  <div class="wrap" style="display:grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+    <div>
+      <code style="display:block; margin-bottom: 18px;">Private &amp; trade</code>
+      <h2 style="white-space: nowrap;">Host a tasting <em>at your place</em></h2>
+      <p>Restaurants, retailers, private dinners, and the occasional birthday with serious wine interest. We bring four to six bottles, a short presentation, and the kind of story that makes a wine list memorable.</p>
+      <a class="btn btn--primary btn--medium" href="about.html#contact">Get in touch</a>
+    </div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div style="aspect-ratio: 3/4; background:#1a2d19 url('assets/tasting-trade.png') center/cover;"></div>
+      <div style="aspect-ratio: 3/4; background:#1a2d19 url('assets/tasting-pour.png') center/cover; margin-top: 32px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Past events ============ -->
+<section class="page-section">
+  <div class="wrap">
+    <div style="display:flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 32px;">
+      <div>
+        <code style="display:block; margin-bottom: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5A7152;">The archive</code>
+        <h2 style="margin: 0; white-space: nowrap;">Past <em>pours</em></h2>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;">2024 – 2026</span>
+    </div>
+    <div class="past-list">
+      <div class="past-row">
+        <div class="pastdate">Apr 18,<br/>2026</div>
+        <div>
+          <h4>Spring Trade Tasting</h4>
+          <div class="venue">Underdog Wine Co. · Kansas City</div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;">Trade only</div>
+      </div>
+      <div class="past-row">
+        <div class="pastdate">Feb 22,<br/>2026</div>
+        <div>
+          <h4>Txakoli &amp; Pintxos</h4>
+          <div class="venue">Affäre · Crossroads, KC</div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;">Public · sold out</div>
+      </div>
+      <div class="past-row">
+        <div class="pastdate">Nov 14,<br/>2025</div>
+        <div>
+          <h4>Passport Series · Rioja Alavesa</h4>
+          <div class="venue">Bar Vin · Hermann, MO</div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;">Public · sold out</div>
+      </div>
+      <div class="past-row">
+        <div class="pastdate">Sep 28,<br/>2025</div>
+        <div>
+          <h4>Harvest Dinner</h4>
+          <div class="venue">Corvino Supper Club · KC</div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;">Wine dinner</div>
+      </div>
+      <div class="past-row">
+        <div class="pastdate">Jun 6,<br/>2025</div>
+        <div>
+          <h4>Wine Garden Sessions · Spring</h4>
+          <div class="venue">Vicia · St. Louis</div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;">Public tasting</div>
+      </div>
+      <div class="past-row">
+        <div class="pastdate">Oct 12,<br/>2024</div>
+        <div>
+          <h4>Launch Party</h4>
+          <div class="venue">Lenexa, KS</div>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;">Invitation only</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Newsletter CTA ============ -->
+<section style="background: #F1F4ED; padding: 80px 0; text-align: center;">
+  <div class="wrap-narrow">
+    <code style="display:block; margin-bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color:#5A7152;">Subscribe</code>
+    <h2 style="margin: 0 0 12px;">Don't miss the <em>next pour</em></h2>
+    <p style="font-size: 17px; line-height: 1.6; max-width: 50ch; margin: 0 auto 28px; color: #5A7152;">One letter a month. New events, the latest journal entry, and the occasional dispatch from the Basque Country.</p>
+    <div style="display: flex; gap: 8px; max-width: 440px; margin: 0 auto;">
+      <input class="newsletter-input" type="email" placeholder="Your email" style="flex: 1; min-width: 0; padding: 0.85rem 1rem !important; font-size: 0.9rem !important;" />
+      <button class="btn btn--primary btn--medium" type="button">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap" style="padding: 64px 0 32px;">
+    <div style="display:grid; grid-template-columns: 1.6fr 1fr 1.2fr 1.4fr; gap: 48px; align-items: start;">
+      <div>
+        <div style="display:flex; align-items:center; gap: 14px; margin-bottom: 18px;">
+          <img src="assets/topa-logo.webp" alt="" style="width:42px; height:42px; background:#FFFFFF; border-radius: 999px; padding: 3px;" />
+          <h3 style="font-size: 18px; margin: 0; white-space: nowrap;">Basque Wine Imports</h3>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; max-width: 38ch;">Curated wines from the Basque Country. Founded in 2024 in Kansas City.</p>
+        <div style="display: flex; gap: 10px; align-items: center; margin-top: 14px;">
+          <img src="assets/basque-flag.png" alt="Ikurriña — Basque flag" title="Topa — a nod to the Basque Country" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+          <img src="assets/kc-flag.png" alt="Kansas City flag" title="Home base — Kansas City" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Explore</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="index.html">Home</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="about.html">About</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="http://instagram.com/basquewineimports">@basquewineimports</a></p>
+        <p style="margin: 6px 0; font-size: 14px;">13725 W. 108th St.<br/>Lenexa, KS 66215</p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
+        <div class="form-wrapper newsletter-form">
+          <div style="display:flex; flex-direction: column; gap: 8px;">
+            <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="margin: 48px 0 24px;" />
+    <div style="display:flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing:0.18em; text-transform: uppercase;">
+      <span>© 2025 Basque Wine Imports</span>
+      <span>13725 W. 108th St. · Lenexa, KS 66215</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

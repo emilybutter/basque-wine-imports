@@ -1,0 +1,306 @@
+/* ============================================================
+   BASQUE WINE IMPORTS
+   Design tokens · type scale · core components
+   ------------------------------------------------------------
+   Palette:  Moss & Forest
+   Type:     Libre Baskerville (serif) + IBM Plex Mono (labels)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --moss:    #8DA63F;   /* accent — logo green */
+  --forest:  #2A4429;   /* anchor — headings & text */
+  --sage:    #5A7152;   /* muted text */
+  --mist:    #E6ECE0;   /* surface — cards, callouts */
+  --rule:    #C8D2C0;   /* hairline borders */
+  --white:   #FFFFFF;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--forest);
+  font-family: "Libre Baskerville", "Hoefler Text", Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Libre Baskerville", "Hoefler Text", Georgia, serif;
+  color: var(--forest);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: 0 0 0.6em;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.02; }
+h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+h4 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0; }
+
+/* Italics in headings get the moss accent */
+h1 em, h2 em, h3 em, h4 em,
+h1 i,  h2 i,  h3 i,  h4 i {
+  font-style: italic;
+  color: var(--moss);
+}
+
+p, li { line-height: 1.65; }
+
+/* Eyebrows / small caps labels — wrap text in <code>. */
+code {
+  font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--moss);
+  background: transparent;
+  padding: 0;
+}
+
+figcaption {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--sage);
+  line-height: 1.5;
+}
+
+blockquote {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+  color: var(--forest);
+  border-left: 2px solid var(--moss);
+  padding-left: 1.5rem;
+  font-size: 1.3rem;
+  line-height: 1.45;
+  margin: 2rem 0;
+}
+
+/* ---------- Links ---------- */
+
+a {
+  color: var(--forest);
+  text-decoration: underline;
+  text-decoration-color: var(--moss);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+a:hover {
+  color: var(--moss);
+  text-decoration-color: var(--forest);
+}
+
+/* ---------- Header & nav ---------- */
+
+.header {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-title,
+.site-title a {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-weight: 400;
+  color: var(--forest);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.nav-item a {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+.nav-item a:hover,
+.nav-item--active a {
+  color: var(--moss);
+}
+
+/* ---------- Announcement bar ---------- */
+
+.announcement-bar {
+  background: var(--forest);
+  color: var(--white);
+}
+.announcement-bar p {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn,
+.btn--small,
+.btn--medium,
+.btn--large {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.btn--primary {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: var(--white);
+}
+.btn--primary:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--white);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--forest);
+  border-color: var(--forest);
+}
+.btn--secondary:hover {
+  background: var(--forest);
+  color: var(--white);
+  border-color: var(--forest);
+}
+
+.btn--tertiary {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--forest);
+  position: relative;
+  display: inline-block;
+}
+.btn--tertiary::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background: currentColor;
+  margin-top: 4px;
+}
+.btn--tertiary:hover { color: var(--moss); }
+
+/* On dark green sections */
+.on-dark--primary {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: #1a2d19;
+}
+.on-dark--primary:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: #1a2d19;
+}
+.on-dark--secondary {
+  background: transparent;
+  border-color: var(--white);
+  color: var(--white);
+}
+.on-dark--secondary:hover {
+  background: var(--white);
+  color: #1a2d19;
+  border-color: var(--white);
+}
+
+/* ---------- Forms ---------- */
+
+input[type="text"],
+input[type="email"],
+textarea,
+select,
+.newsletter-input {
+  font-family: "Libre Baskerville", Georgia, serif;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--white);
+  color: var(--forest);
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  box-shadow: none;
+  outline: none;
+  transition: border-color 160ms ease;
+}
+input:focus,
+textarea:focus,
+select:focus,
+.newsletter-input:focus {
+  border-color: var(--moss);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--forest);
+  color: var(--white);
+}
+.site-footer * { color: var(--white); }
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4 { color: var(--white); }
+.site-footer a {
+  color: var(--white);
+  text-decoration-color: var(--moss);
+}
+.site-footer a:hover { color: var(--moss); }
+
+/* ---------- Pills ---------- */
+
+.bwi-pill {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--forest);
+  color: var(--forest);
+  margin-right: 6px;
+  white-space: nowrap;
+}
+.bwi-pill--moss {
+  border-color: var(--moss);
+  color: var(--moss);
+}
+.bwi-pill--filled {
+  background: var(--forest);
+  color: var(--white);
+  border-color: var(--forest);
+}
+
+/* ---------- Utility ---------- */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2rem 0;
+}
+
+::selection {
+  background: var(--moss);
+  color: var(--white);
+}

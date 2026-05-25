@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Journal · Basque Wine Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Libre Baskerville", Georgia, serif; background: #FFFFFF; color: #2A4429; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+  .wrap-narrow { max-width: 720px; margin: 0 auto; padding: 0 40px; }
+  .page-section { padding: 80px 0; }
+  .btn:not(.btn--tertiary) { white-space: nowrap; }
+  .btn--tertiary { white-space: nowrap; }
+  .nav-item a { white-space: nowrap; }
+
+  /* Journal-specific */
+  .journal-hero {
+    background: #2A4429;
+    color: #FFFFFF;
+    padding: 96px 0 72px;
+  }
+  .journal-hero h1 { color: #FFFFFF; margin: 0; }
+  .journal-hero em { color: #8DA63F; }
+  .journal-hero code { color: #8DA63F; }
+
+  .post-card {
+    display: flex; flex-direction: column; gap: 18px;
+    text-decoration: none; color: inherit;
+  }
+  .post-card .img {
+    aspect-ratio: 4/3;
+    background: #F1F4ED center/cover;
+    transition: opacity .25s ease;
+  }
+  .post-card:hover .img { opacity: .85; }
+  .post-card .meta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #5A7152;
+  }
+  .post-card h3 { margin: 0; font-size: 24px; line-height: 1.25; }
+  .post-card p { margin: 0; font-size: 15px; line-height: 1.6; color:#5A7152; }
+
+  .featured-card {
+    display:grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .featured-card .img { aspect-ratio: 4/3; background: #F1F4ED center/cover; }
+  .featured-card .meta { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #5A7152; }
+  .featured-card h2 { margin: 14px 0 18px; }
+  .featured-card p { font-size: 17px; line-height: 1.65; margin: 0 0 24px; }
+
+  .post-body { padding: 96px 0; }
+  .post-body + .post-body { border-top: 1px solid #E6ECE0; }
+  .post-body .lede {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: #2A4429;
+    margin: 0 0 32px;
+  }
+  .post-body p { font-size: 17px; line-height: 1.75; margin: 0 0 22px; }
+  .post-body h3 { font-size: 26px; margin: 40px 0 14px; }
+  .post-body .hero-img { aspect-ratio: 16/9; background: #F1F4ED center/cover; margin: 0 0 40px; }
+  .post-body .pull {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.4;
+    color: #2A4429;
+    border-left: 3px solid #8DA63F;
+    padding-left: 24px;
+    margin: 36px 0;
+  }
+  .post-body .byline {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #5A7152;
+    margin-bottom: 14px;
+  }
+  .post-body h2 { margin: 0 0 24px; }
+  .post-body .event-meta {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    margin: 36px 0; padding: 24px 0;
+    border-top: 1px solid #E6ECE0; border-bottom: 1px solid #E6ECE0;
+  }
+  .post-body .event-meta dt { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152; margin-bottom: 6px; }
+  .post-body .event-meta dd { margin: 0; font-size: 16px; }
+
+  .newsletter-cta {
+    background: #F1F4ED;
+    padding: 80px 0;
+    text-align: center;
+  }
+  .newsletter-cta h2 { margin: 0 0 12px; }
+  .newsletter-cta p { font-size: 17px; line-height: 1.6; max-width: 50ch; margin: 0 auto 28px; color: #5A7152; }
+  .newsletter-cta .form-row {
+    display: flex; gap: 8px; max-width: 440px; margin: 0 auto;
+  }
+  .newsletter-cta input {
+    flex: 1; min-width: 0;
+    padding: 0.85rem 1rem !important; font-size: 0.9rem !important;
+  }
+</style>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ Announcement bar ============ -->
+<div class="announcement-bar">
+  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;">Now pouring in Kansas City · Hello from the Basque Country</p></div>
+</div>
+
+<!-- ============ Header ============ -->
+<header class="header">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; padding-top: 22px; padding-bottom: 22px;">
+    <div style="display:flex; align-items:center; gap: 14px;">
+      <img src="assets/topa-logo.webp" alt="" style="width:52px; height:52px;" />
+      <h2 class="site-title" style="margin:0; font-size: 22px;"><a href="index.html" style="text-decoration:none;">Basque Wine Imports</a></h2>
+    </div>
+    <nav style="display:flex; gap: 28px; flex-wrap: nowrap;">
+      <div class="nav-item"><a href="index.html">Home</a></div>
+      <div class="nav-item"><a href="about.html">About</a></div>
+      <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+      <div class="nav-item"><a href="events.html">Events</a></div>
+      <div class="nav-item nav-item--active"><a href="blog.html">Journal</a></div>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Journal hero ============ -->
+<section class="journal-hero">
+  <div class="wrap">
+    <code style="display:block; margin-bottom: 18px;">The Journal · New entry the first of every month</code>
+    <h1 style="white-space: nowrap;">Field notes from <em>the Basque Country</em></h1>
+    <p style="font-size: 18px; line-height: 1.65; color:#E6ECE0; max-width: 60ch; margin: 22px 0 0;">A monthly dispatch from our travels, tastings, and the producers we work with. Sign up to get the next one in your inbox.</p>
+  </div>
+</section>
+
+<!-- ============ Featured (most recent) ============ -->
+<section class="page-section">
+  <div class="wrap">
+    <code style="display:block; margin-bottom: 24px; font-family: 'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#5A7152;">Latest entry</code>
+    <a href="#post-trip-2027" class="featured-card" style="text-decoration:none; color:inherit;">
+      <div class="img" style="background-image: url('assets/basque-trip-map.png'); background-size: cover; background-position: center;"></div>
+      <div>
+        <div class="meta">May 25, 2026 · Travel</div>
+        <h2 style="white-space: normal;">Save the date:<br/><em style="white-space: nowrap;">2027 Basque Country Trip</em></h2>
+        <p>Nine days, eight nights, two BWI producers, and a route through Bilbao, Rioja, Pamplona, San Sebastián, and the French Basque Country. We're partnering with Get Away à la Carte for a small-group trip in Fall 2027 — pre-interest list is open now.</p>
+        <span class="btn btn--primary btn--medium">Read the itinerary</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ Older posts grid ============ -->
+<section class="page-section" style="padding-top: 0;">
+  <div class="wrap">
+    <div style="display:flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 48px;">
+      <div>
+        <code style="display:block; margin-bottom: 12px;">All entries</code>
+        <h2 style="margin: 0; white-space: nowrap;">From the <em>archive</em></h2>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;">9 entries · 2025–2026</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 56px 40px;">
+      <a class="post-card" href="#post-affare">
+        <div class="img" style="background-image: url('assets/women-in-wine.avif');"></div>
+        <div class="meta">May 24, 2026 · Events</div>
+        <h3>A Global Tasting at <em>Affäre</em></h3>
+        <p>Women in Wine KC takes the courtyard. Four BWI bottles to start the evening, then three more regions across the chef's menu.</p>
+      </a>
+      <a class="post-card" href="#post-vicia">
+        <div class="img" style="background-image: url('assets/vicia-garden.jpg');"></div>
+        <div class="meta">May 18, 2026 · Events</div>
+        <h3>Indigenous grapes travel to <em>Vicia's Wine Garden</em></h3>
+        <p>St. Louis, May 27. An educational tasting in the garden at one of the Midwest's best restaurants.</p>
+      </a>
+      <a class="post-card" href="#post-barvin">
+        <div class="img" style="background-image: url('assets/bar-vin.jpg');"></div>
+        <div class="meta">May 11, 2026 · Events</div>
+        <h3>The Passport Series lands at <em>Bar Vin</em></h3>
+        <p>Hermann, Missouri, May 26. Six bottles from the Spanish Basque Country — bright, built for good times — with Kerri at the helm.</p>
+      </a>
+      <a class="post-card" href="#post-beltza">
+        <div class="img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-beltza.jpg');"></div>
+        <div class="meta">April 15, 2026 · The Grapes</div>
+        <h3>Hondarrabi <em>Beltza</em></h3>
+        <p>The coastal red that almost vanished. Fruity, herbaceous, and stubbornly local.</p>
+      </a>
+      <a class="post-card" href="#post-zerratia">
+        <div class="img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-zerratia.jpg');"></div>
+        <div class="meta">March 12, 2026 · The Grapes</div>
+        <h3>Hondarrabi <em>Zerratia</em></h3>
+        <p>The quieter sibling. White flowers, voluminous body, and the longest finish in the cellar.</p>
+      </a>
+      <a class="post-card" href="#post-zuri">
+        <div class="img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-zuri.jpg');"></div>
+        <div class="meta">February 10, 2026 · The Grapes</div>
+        <h3>Hondarrabi <em>Zuri</em></h3>
+        <p>The Atlantic white. Salt air, green apple, and a thread of acidity that makes everything else taste better.</p>
+      </a>
+      <a class="post-card" href="#post-gorka">
+        <div class="img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/bodega-portada.jpg');"></div>
+        <div class="meta">January 8, 2026 · Producers</div>
+        <h3>A morning at <em>Gorka Izagirre</em></h3>
+        <p>Fifteen minutes from Bilbao, forty hectares of steep, southeast-facing vines, and a quietly ambitious family.</p>
+      </a>
+      <a class="post-card" href="#post-basque-country" style="grid-column: span 3; display:grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center;">
+        <div class="img" style="background-image: url('https://images.squarespace-cdn.com/content/v1/67842d17afa23d688ef14f3f/91903890-eb4f-4409-9a86-0eae2a37b13c/3+of+5.jpg?format=2500w'); aspect-ratio: 4/3;"></div>
+        <div>
+          <div class="meta">December 4, 2025 · Travel</div>
+          <h3 style="font-size: 30px;">Go to the source: a beginner's guide to the <em>Basque Country</em></h3>
+          <p>San Sebastián, Bilbao, Getaria, and the hills between. Where to eat, where to taste, and what to skip.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- ============ INDIVIDUAL POSTS (long form) ==================== -->
+<!-- ============================================================== -->
+
+<section style="background:#F1F4ED; padding: 24px 0; text-align:center;">
+  <div class="wrap">
+    <code style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color:#5A7152;">Read on ↓</code>
+  </div>
+</section>
+
+<!-- ============ POST: Basque Country Trip 2027 ============ -->
+<article id="post-trip-2027" class="post-body">
+  <div class="wrap-narrow">
+    <p class="byline">May 25, 2026 · Travel · 7 min read</p>
+    <h2 style="white-space: normal;">Save the date:<br/><em style="white-space: nowrap;">2027 Basque Country Trip</em></h2>
+    <p class="lede">Nine days, eight nights, two BWI producers, and a route that runs Bilbao → Rioja → Pamplona → San Sebastián → the French Basque Country. The pre-interest list is open.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; align-items: start;">
+      <img src="assets/basque-trip-map.png" alt="Map of the Basque Country tour route" style="display:block; width:100%; height:auto;" />
+      <img src="assets/gorka-collage.png" alt="Gorka Izagirre wines, grapes, and pintxos with jamón" style="display:block; width:100%; height:auto;" />
+    </div>
+
+    <dl class="event-meta">
+      <div><dt>When</dt><dd>Fall 2027 · 9 days, 8 nights</dd></div>
+      <div><dt>Group size</dt><dd>Small group · limited spots</dd></div>
+      <div><dt>How to join</dt><dd><a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener" style="color:#2A4429;">Book on Get Away à la Carte</a></dd></div>
+    </dl>
+
+    <p>Our 2026 Basque Country trip filled up the week we announced it. So we're back at it for Fall 2027, again in partnership with <strong>Get Away à la Carte</strong> — Kathy Denis's small-group travel company out of Overland Park — and again with me along as the cultural anthropologist, wine importer, and on-the-ground guide.</p>
+
+    <p>The format is the one I always wish more wine trips did: a real itinerary, but with the kind of access only comes from spending fifteen years building relationships in a region. Exclusive tastings at both <strong>Gorka Izagirre</strong> and <strong>Zudugarai</strong> — the two producers we represent. A farewell dinner inside a <em>sociedad gastronómica</em>, the famously hard-to-enter private Basque cooking-and-dining clubs. Pintxos tours in San Sebastián led by someone who has lived there. And a full day across the border in the French Basque Country, because the cultural story doesn't stop at a national line drawn in the seventeenth century.</p>
+
+    <p class="pull">"Rare access, authentic stories, and the kind of insider perspective that makes every stop richer."</p>
+
+    <h3>The route</h3>
+
+    <p>Eight nights of accommodations, coach transportation throughout, gratuities, meals as listed (wine included at lunch and dinner), and excursions all bundled. Airfare is on you, but Kathy will help if you need.</p>
+
+    <h3>Day by day</h3>
+
+    <p><strong>Day 1 · Bilbao.</strong> Arrival, an early-evening aperitivo, and a welcome dinner to set the tone.</p>
+
+    <p><strong>Day 2 · Bilbao.</strong> A guided walking tour of the old neighborhoods, the Guggenheim with a docent, lunch at the museum, free afternoon to wander — the maritime museum, the cathedral, or the San Mamés stadium if you're a fan. Dinner on your own (I have a list).</p>
+
+    <p><strong>Day 3 · Gorka Izagirre.</strong> The hillside winery above Bilbao, fifteen minutes out of the city, the one I've written about elsewhere on this journal. Guided tour, full tasting, Basque bites paired course-by-course. The neighboring restaurants are Michelin-starred and were featured in Eva Longoria's <em>Searching for Spain</em>; we eat exactly where we should.</p>
+
+    <p><strong>Day 4 · Rioja and the salt valley.</strong> South through the Cantabrian foothills into Rioja Alavesa. We stop at <strong>Salinas de Añana</strong> — a millennia-old salt-evaporation valley terraced into a hillside, with a tasting of the salts at the end — then settle into Laguardia, a hilltop medieval town surrounded by vineyards. Group dinner.</p>
+
+    <p><strong>Day 5 · Navarra.</strong> A family-owned Garnacha producer in the Navarra appellation, with a tour, tasting, and lunch at the winery. Evening back in Laguardia for a quiet wander and a relaxed dinner on your own.</p>
+
+    <p><strong>Day 6 · Pamplona to San Sebastián.</strong> Pamplona for the morning — the running-of-the-bulls streets, Hemingway's Café Iruña, an hour to choose where you want lunch — then across to San Sebastián for three nights in a seaside hotel. Evening: a guided pintxos tour through the old town.</p>
+
+    <p><strong>Day 7 · French Basque Country.</strong> Over the Pyrenees, into France. <strong>Saint-Jean-de-Luz</strong> for the morning, <strong>Espelette</strong> for lunch under the red peppers drying on the walls, <strong>Bayonne</strong> for chocolate tastings in the medieval quarter. Back to San Sebastián for the evening.</p>
+
+    <p><strong>Day 8 · Zudugarai and Getaria.</strong> Morning in Getaria — the coastal village that gives the txakoli DO its name — and an exclusive private tasting at <strong>Zudugarai</strong>, which is normally closed to the public. We finish the day at a farewell dinner inside the owner's <em>sociedad gastronómica</em>, a members-only Basque cooking club. I cannot overstate what a rare thing this is.</p>
+
+    <p><strong>Day 9 · Departure.</strong> Breakfast, goodbyes, fly home — or stay and keep going.</p>
+
+    <h3>Fitness note</h3>
+
+    <p>The Basque Country is glorious and it is also, in many of its prettiest places, made entirely of cobblestones and stairs. A moderate level of fitness — comfortable walking and standing for stretches — is genuinely necessary. If you can do an art-museum day on your feet without fading, you'll be fine.</p>
+
+    <h3>How to join</h3>
+
+    <p>Pricing, full itinerary, and registration are all on the Get Away à la Carte site — that's where Kathy handles the bookings. <a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener"><strong>Reserve your spot or join the pre-interest list there →</strong></a></p>
+
+    <p>I'd love to see you there.</p>
+
+    <p style="margin-top: 32px; display:flex; gap: 12px; flex-wrap: wrap;"><a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener" class="btn btn--primary btn--medium">Book the trip</a><a href="events.html#trip-2027" class="btn btn--secondary btn--medium">See it on the Events page</a></p>
+  </div>
+</article>
+
+<!-- ============ POST: Affäre ============ -->
+<article id="post-affare" class="post-body">
+  <div class="wrap-narrow">
+    <p class="byline">May 24, 2026 · Events · 4 min read</p>
+    <h2 style="white-space: normal;">A Global Tasting at <em>Affäre</em></h2>
+    <p class="lede">Women in Wine KC takes over the courtyard patio at one of Kansas City's most quietly ambitious restaurants — and we're pouring four wines from the Basque Country to start the evening.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="hero-img" style="background-image: url('assets/women-in-wine.avif');"></div>
+
+    <dl class="event-meta">
+      <div><dt>When</dt><dd>June 10 · 6:00–9:00 PM</dd></div>
+      <div><dt>Where</dt><dd>Affäre · Crossroads, KC</dd></div>
+      <div><dt>Tickets</dt><dd>From $78 · Women in Wine KC</dd></div>
+    </dl>
+
+    <p>Affäre sits on East 18th Street in the Crossroads Arts District, in a building that used to be a print shop and now smells, on a good night, like roasted duck and the inside of a German pastry case. It's run by Martin and Katrin Heuser, who moved to Kansas City from Düsseldorf in 2010 and have been quietly racking up James Beard nominations ever since. The courtyard patio out back — string lights, a fountain, the murmur of the kitchen line through an open window — is one of the city's best-kept secrets.</p>
+
+    <p>On June 10, Women in Wine KC takes the patio for the evening. The format is a four-course dinner organized as a "global tasting" — wines from a different region paired with each course, told as a story rather than a flight. Basque Wine Imports is up first.</p>
+
+    <h3>What we're pouring</h3>
+
+    <p>Four bottles, four wildly different expressions of a coastline that gets thirty-six inches of rain a year and still manages to make the most electric whites in Europe.</p>
+
+    <p>We'll open with <strong>Zudugarai Txakoli Blanco</strong> — the wine that taught me what salinity tastes like. Then <strong>Gorka Izagirre Zura</strong>, a Hondarrabi Zuri grown in the hills above Bilbao that drinks like a lieu-dit Chablis from a parallel universe. The third pour is <strong>Zudugarai Brut Nature</strong>, a traditional-method sparkler from Getaria that the Heusers requested specifically — Martin tasted it last fall and asked us to save him six bottles. We finish on <strong>Gorka Izagirre Ilun</strong>, the small-production Hondarrabi Beltza red that has no business being as good as it is.</p>
+
+    <p class="pull">"Pintxos optional. Conversation, mandatory."</p>
+
+    <p>I'll be there pouring and telling stories — about the Atlantic, about why Basques are stubborn about their own grapes, about the morning at Gorka Izagirre that I keep meaning to write down properly. Bring questions. Bring friends.</p>
+
+    <p>Tickets are available through Women in Wine KC, and they tend to sell out the week of. If you've never done one of their dinners, this is a good one to start with.</p>
+
+    <p><a href="about.html#contact" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">Ask Kerri about tickets →</a></p>
+  </div>
+</article>
+
+<!-- ============ POST: Vicia ============ -->
+<article id="post-vicia" class="post-body">
+  <div class="wrap-narrow">
+    <p class="byline">May 18, 2026 · Events · 3 min read</p>
+    <h2 style="white-space: normal;">Indigenous grapes travel to <em>Vicia's Wine Garden</em></h2>
+    <p class="lede">A monthly educational tasting in the prettiest garden in St. Louis — and this month, we're the guests.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="hero-img" style="background-image: url('assets/vicia-garden.jpg');"></div>
+
+    <dl class="event-meta">
+      <div><dt>When</dt><dd>May 27 · 6:00 PM</dd></div>
+      <div><dt>Where</dt><dd>Vicia Wine Garden · St. Louis</dd></div>
+      <div><dt>Tickets</dt><dd>$30 · OpenTable</dd></div>
+    </dl>
+
+    <p>Vicia is a farm-to-table restaurant tucked into the Cortex innovation district in St. Louis, and the Wine Garden behind it is a half-acre of raised beds, a few long communal tables, and an extraordinarily well-curated wine list. Chef Michael and Tara Gallina run the whole thing the way you'd want a restaurant run — slowly, seasonally, with most of the menu pulled out of the ground that morning.</p>
+
+    <p>The Wine & Spirits School at Vicia hosts a monthly tasting in the garden, led by a different importer or sommelier each month. The format is unfussy: pours, snacks, an hour of stories from the person who actually went and got the wine.</p>
+
+    <p>This month, that's me.</p>
+
+    <h3>What you'll taste</h3>
+
+    <p>The tasting is built around indigenous Basque grape varieties — Hondarrabi Zuri, Hondarrabi Zerratia, and Hondarrabi Beltza. You won't find these in any other DO in the world. They grow on steep, southeast-facing slopes within a few miles of the Atlantic, in soils that should not, by any honest accounting, be planted to wine grapes.</p>
+
+    <p>I'll bring six bottles — three from Gorka Izagirre, three from Zudugarai — and we'll move from the lightest, saltiest white to the deepest red. There will be cheese. There will be slides. There will probably be a digression about why Basque is a language isolate, because I cannot help myself.</p>
+
+    <p class="pull">"$30 a head. You will leave smarter."</p>
+
+    <p>Tickets are $30 through Vicia's OpenTable page. The garden seats forty-something. It will fill up.</p>
+
+    <p><a href="https://www.opentable.com/r/vicia-saint-louis" target="_blank" rel="noopener" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">Reserve on OpenTable →</a></p>
+  </div>
+</article>
+
+<!-- ============ POST: Bar Vin ============ -->
+<article id="post-barvin" class="post-body">
+  <div class="wrap-narrow">
+    <p class="byline">May 11, 2026 · Events · 3 min read</p>
+    <h2 style="white-space: nowrap;">Passport Series at <em>Bar Vin</em></h2>
+    <p class="lede">Spanish Basque Country — where the wines are bright and built for good times. Bar Vin in Hermann, Missouri, takes its monthly Passport Series to the Atlantic coast. One night with Kerri at the helm.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="hero-img" style="background-image: url('assets/bar-vin.jpg');"></div>
+
+    <dl class="event-meta">
+      <div><dt>When</dt><dd>Tuesday, May 26 · 5:30 PM<br/><span style="color:#5A7152; font-size:13px;">Doors 5:15 · Runs to 7:00 PM</span></dd></div>
+      <div><dt>Where</dt><dd>Bar Vin<br/>114 E 4th St, Hermann, MO</dd></div>
+      <div><dt>Tickets</dt><dd>$40 · Square</dd></div>
+    </dl>
+
+    <p>Hermann is a small Missouri river town with German bones and very serious feelings about wine. The hills above it produce some of the oldest commercial vineyards in the country. The main street is four blocks long. Bar Vin sits on it, in a brick storefront with a black-painted facade and a wine list that punches several weight classes above the room.</p>
+
+    <p>Their monthly Passport Series has, quietly, become one of the best wine education programs in the state. Each month a different region, told properly, with bottles that are usually hard to source and almost never available by the glass. May is the Spanish Basque Country. Tuesday night is mine.</p>
+
+    <h3>The pitch</h3>
+
+    <p>I'll be there leading the night — pouring six wines from small family producers you're not going to find just anywhere, and telling the stories that make them matter. These are wines I work directly with, from people I know by first name. They are bright. They are saline. They are built for good times.</p>
+
+    <p class="pull">"Drink, learn, and probably find your new favorite summer wine."</p>
+
+    <p>$40 per person. Seats are limited and the wines can be hard to source, so this isn't a tasting Bar Vin will be able to repeat often. Doors open at 5:15. We start pouring at 5:30 sharp.</p>
+
+    <h3>How to get a ticket</h3>
+
+    <p>Available online or in person at Bar Vin. <em>Refundable up to Friday May 22 at 11pm</em>; transferable to other guests after that.</p>
+
+    <p><a href="https://square.link/u/QClNl3Ca" target="_blank" rel="noopener" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">Reserve on Square →</a></p>
+  </div>
+</article>
+
+<!-- ============ POST: Hondarrabi Beltza ============ -->
+<article id="post-beltza" class="post-body">
+  <div class="wrap-narrow">
+    <p class="byline">April 15, 2026 · The Grapes · 5 min read</p>
+    <h2 style="white-space: normal;">Hondarrabi <em>Beltza</em></h2>
+    <p class="lede">The Basque Country's almost-forgotten red. Fruity, herbaceous, deeply local, and — by any reasonable count — grown almost nowhere else.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="hero-img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-beltza.jpg');"></div>
+
+    <p>For most of the last hundred years, if you'd asked a wine merchant in Bilbao about Hondarrabi Beltza, they'd have given you the polite version of a shrug. The Basque Country was understood, on the global market, as a white-wine place. Txakoli was white. Rioja, half an hour south, was where the reds came from. Beltza — the indigenous Atlantic red grape — had been quietly losing ground to international varieties since the phylloxera years.</p>
+
+    <p>By the 1980s, it was nearly gone.</p>
+
+    <h3>The recovery</h3>
+
+    <p>The DO Bizkaiko Txakolina was established in 1994, and one of its first projects was a vine census. The numbers were sobering: a few dozen hectares of Beltza scattered across the whole region, most of it old vines maintained on a hobbyist basis by families who had no commercial reason to plant more of it. The DO put together a propagation program. Gorka Izagirre — the winery — joined early, and today has the largest planting of Beltza in the world. Which, in context, means about six hectares.</p>
+
+    <p>Six hectares. Of the world's entire production.</p>
+
+    <p class="pull">"Six hectares. Of the world's entire production."</p>
+
+    <h3>What it tastes like</h3>
+
+    <p>Beltza in the glass is medium-deep purple — closer to a Beaujolais cru than a Tempranillo, lighter than its color suggests it should be. The nose is wild strawberry, crushed blackcurrant leaf, a thread of green pepper, and something that always reads to me as just-bruised herbs from a kitchen garden. On the palate it's bright and saline and almost insistent about its acidity. It is not a hedonist's wine. It is precise.</p>
+
+    <p>Gorka Izagirre's <strong>Ilun</strong> is the bottle to start with. It's vinified with whole clusters and aged for a few months in old French oak — enough to round the edges, not enough to bury the fruit. It drinks like a serious Loire cabernet franc, if cabernet franc had grown up at sea level and gone to school in Basque.</p>
+
+    <h3>How to drink it</h3>
+
+    <p>Slightly chilled. About 14°C. Not 18°. With grilled fish — yes, fish — or with anything roasted and herby. Lamb, rabbit, pintxos with anchovy and red pepper. It is a wine that wants food, and food that wants it back.</p>
+
+    <p>We brought back twelve cases this spring. They will not last the summer.</p>
+  </div>
+</article>
+
+<!-- ============ POST: Hondarrabi Zerratia ============ -->
+<article id="post-zerratia" class="post-body">
+  <div class="wrap-narrow">
+    <p class="byline">March 12, 2026 · The Grapes · 4 min read</p>
+    <h2 style="white-space: normal;">Hondarrabi <em>Zerratia</em></h2>
+    <p class="lede">The quieter sibling in the Bizkaian cellar. White flowers, voluminous body, and the longest finish on the tasting bench.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="hero-img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-zerratia.jpg');"></div>
+
+    <p>If Hondarrabi Zuri is the grape that runs out to greet you at the door — bright, lemony, immediately likeable — Zerratia is the one that's been quietly setting the table the whole time. It's the textural counterweight in any serious Bizkaian white. And until about ten years ago, almost nobody outside the region had heard of it.</p>
+
+    <p>The DNA studies place Zerratia closer to the Petit Manseng family than to its supposed sibling Zuri — which makes sense the moment you taste them side by side. Where Zuri is all acidity and salt, Zerratia is body and breadth: melon, white flowers, baked apple, a touch of beeswax with age. The acidity is there, but folded into the wine rather than running ahead of it.</p>
+
+    <h3>In the vineyard</h3>
+
+    <p>Zerratia ripens later than Zuri and holds onto its acidity longer, which is part of why it makes such a useful blending partner — and part of why, as the climate has warmed, plantings have crept upward. Gorka Izagirre farms a few hectares on a particularly steep, southeast-facing parcel above Larrabetzu. The clusters are small and tight and concentrated; the yields are honest.</p>
+
+    <p class="pull">"The grape that's been setting the table the whole time."</p>
+
+    <h3>In the cellar</h3>
+
+    <p>The most interesting Zerratia bottles spend a little time on their fine lees — not enough to mask the fruit, but enough to give them weight. <strong>G22 Aretxondo</strong>, Gorka Izagirre's small-production Zerratia-led white, is barrel-fermented in old French oak and held for a year before release. It drinks like a serious Marsanne. It pairs with anything you'd put a white Burgundy on, and several things you wouldn't.</p>
+
+    <h3>Where to find it</h3>
+
+    <p>We brought back a small parcel this spring — six cases of the G22 and another twelve of the entry-level white that uses Zerratia as a complement to Zuri. Both are pouring at the Vicia tasting on May 27 and at the Bar Vin Passport Series on May 26.</p>
+  </div>
+</article>
+
+<!-- ============ POST: Hondarrabi Zuri ============ -->
+<article id="post-zuri" class="post-body">
+  <div class="wrap-narrow">
+    <p class="byline">February 10, 2026 · The Grapes · 4 min read</p>
+    <h2 style="white-space: normal;">Hondarrabi <em>Zuri</em></h2>
+    <p class="lede">The Atlantic white. Green apple, sea spray, and a thread of acidity that has, in my experience, made everything else on the table taste better.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="hero-img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/vinedos-hondarrabi-zuri.jpg');"></div>
+
+    <p>If you've ever had txakoli — the slightly fizzy, ferociously acidic Basque white poured into a wide tumbler from arm's length above the glass — you've had Hondarrabi Zuri. It is the grape that defines the wine. Eighty percent or more of every traditional txakoli bottle. Grown almost nowhere else on earth.</p>
+
+    <p>Zuri is a coastal grape. Its native range follows the cliffs from Getaria around to Bilbao and inland into the green hills above. It needs the rain, the wind, the salt air; it doesn't ripen well anywhere else. In good years it produces small, tight clusters that taste like green apple and lemon zest and something just briefly of the sea.</p>
+
+    <h3>What the wine does</h3>
+
+    <p>The most famous expression — the one tourists drink in San Sebastián from a wide-bottomed glass — is the simple, slightly pétillant, immediately refreshing version. It's a perfect aperitif and a perfect partner for anchovies, hake, pintxos of any kind. You serve it cold. You drink it fast. You order another.</p>
+
+    <p class="pull">"You serve it cold. You drink it fast. You order another."</p>
+
+    <p>But there's a second, quieter tradition: Hondarrabi Zuri vinified seriously. Picked riper, fermented slowly, sometimes aged on the lees in old oak. Bottles like Gorka Izagirre's <strong>Zura</strong> show what the grape can do when it isn't asked to be a beach wine. The salinity is still there — Zuri can't help that — but it's joined by yellow apple, chamomile, and a creamy, almost waxy texture. It's a serious wine. It will age five years without complaint.</p>
+
+    <h3>How to drink it</h3>
+
+    <p>For the simple txakoli, the answer is: cold, with anything fried. For the serious Zuri-driven whites, treat them like good Chablis. White fish in beurre blanc. Crab. A roast chicken with lemon and herbs. Pour it at 10–12°C, not colder. Let it breathe a few minutes.</p>
+
+    <p>We carry three Zuri-driven bottles: Zudugarai's straightforward Txakoli Blanco, Gorka Izagirre's Zura, and a small parcel of the single-vineyard Aretxondo. All three are pouring at the May tastings.</p>
+  </div>
+</article>
+
+<!-- ============ POST: A morning at Gorka Izagirre ============ -->
+<article id="post-gorka" class="post-body">
+  <div class="wrap-narrow">
+    <p class="byline">January 8, 2026 · Producers · 6 min read</p>
+    <h2 style="white-space: normal;">A morning at <em>Gorka Izagirre</em></h2>
+    <p class="lede">Fifteen minutes from Bilbao, forty hectares of steep, southeast-facing vines, and a quietly ambitious family quietly making some of the most interesting wines in Spain.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="hero-img" style="background-image: url('https://www.gorkaizagirre.com/wp-content/uploads/bodega-portada.jpg');"></div>
+
+    <p>You leave Bilbao on the BI-737 heading northeast, and within ten minutes the city is gone. The road climbs through eucalyptus and pine, the valleys narrow, the houses thin out into farmhouses. In Larrabetzu — population two thousand, give or take — you turn left at the church, climb another mile of switchbacks, and the vineyards open up on your right: forty hectares of green and silver, dropping steeply toward the south.</p>
+
+    <p>That's Gorka Izagirre.</p>
+
+    <h3>What they do</h3>
+
+    <p>The winery was founded in 2003 by the Izagirre family — five siblings, the third generation on the land — with a single, clear ambition: to take the indigenous Basque grape varieties seriously. Not as a folk curiosity. Not as a beach wine. As wines worth a wine list, a sommelier's attention, a cellar. The DO Bizkaiko Txakolina was less than a decade old at the time. The market for serious txakoli barely existed.</p>
+
+    <p>Today Gorka Izagirre is the largest producer of all three native varieties — Hondarrabi Zuri, Hondarrabi Zerratia, and Hondarrabi Beltza — and the only one farming them at this scale on the slopes above Bilbao. The portfolio runs from a simple, joyful entry-level white to single-vineyard, barrel-aged bottlings that wine writers have started, slowly, to notice.</p>
+
+    <p class="pull">"They are absolutely uninterested in making Chardonnay."</p>
+
+    <h3>The morning</h3>
+
+    <p>I visited last October, on a day that started gray and ended in clear sunshine — which is more or less the Basque Country's only weather pattern. Gorka, the winemaker, walked me through the vineyards before we tasted. The vines are trained on the traditional <em>parral</em> system — high, horizontal canopies stretched on wires above your head, which lets the Atlantic wind move underneath and the grapes ripen without scorching. You walk through the vineyards looking up.</p>
+
+    <p>The slopes are steeper than they look from the road. Twenty-five, thirty percent in places. Everything is hand-harvested, because no machine could hold its grip on that incline.</p>
+
+    <h3>The cellar</h3>
+
+    <p>The winery building is modern — concrete, glass, a long roof line that follows the slope. Inside it's quiet and clean and smells faintly of cool stone. We tasted seven wines, from the simplest to the smallest production. The standouts, for me, were the single-vineyard whites — Aretxondo and Munetaberri — and the small-batch Beltza-driven red, Ilun, which is the bottle that first convinced me this region was worth importing.</p>
+
+    <p>I asked Gorka what he wanted people to understand about Basque wine. He thought about it for a long minute. "That it isn't trying to be anything else," he said. "It's only this."</p>
+
+    <h3>What we brought back</h3>
+
+    <p>Four bottles, in commercial quantities, for the first time in Kansas City: Zura (Hondarrabi Zuri), Aretxondo (single-vineyard, Zerratia-led white), Gorka Izagirre (the flagship blend), and Ilun (the small-production Beltza red). All four are on the shelf and pouring at the May tastings.</p>
+  </div>
+</article>
+
+<!-- ============ POST: Go to the source ============ -->
+<article id="post-basque-country" class="post-body" style="padding-bottom: 120px;">
+  <div class="wrap-narrow">
+    <p class="byline">December 4, 2025 · Travel · 8 min read</p>
+    <h2 style="white-space: normal;">Go to the source: a beginner's guide to the <em>Basque Country</em></h2>
+    <p class="lede">San Sebastián, Bilbao, Getaria, and the green hills in between. Where to eat, where to taste, what to skip, and how not to be that tourist.</p>
+  </div>
+  <div class="wrap-narrow">
+    <div class="hero-img" style="background-image: url('https://images.squarespace-cdn.com/content/v1/67842d17afa23d688ef14f3f/91903890-eb4f-4409-9a86-0eae2a37b13c/3+of+5.jpg?format=2500w');"></div>
+
+    <p>The Basque Country is small. You can drive from Bilbao to San Sebastián in just over an hour, and from either of those cities to the French border in not much more. The whole place — both the Spanish and French sides combined — is about the size of Connecticut. Which means: you can see a lot of it in a week, and most people see far too little.</p>
+
+    <p>Here's how I'd spend five days, if it were my first trip.</p>
+
+    <h3>Day 1–2 · Bilbao</h3>
+
+    <p>Fly into Bilbao. It's the easiest entry point and the most underrated city in Spain. The Guggenheim is genuinely worth the visit — go on a weekday morning, before the cruise crowds — but the real reason to spend two days in Bilbao is the food. The <strong>Casco Viejo</strong> (old town) is dense with pintxos bars; you'll want to do a slow crawl through three or four of them in an evening, ordering one or two pintxos per stop and a small glass of txakoli or a caña. Don't sit down. Lean at the bar.</p>
+
+    <p>The bars to know: <strong>Gure Toki</strong>, <strong>Sorginzulo</strong>, <strong>Bar Charly</strong>. For a more ambitious dinner, <strong>Mina</strong> (Michelin-starred, riverside, surprisingly affordable for what it is) or <strong>La Viña del Ensanche</strong> for old-school ham and tinned fish done seriously.</p>
+
+    <h3>Day 3 · The wineries</h3>
+
+    <p>Rent a car. Drive thirty minutes northeast to Larrabetzu and visit <strong>Gorka Izagirre</strong> — book ahead through their website, the tour is in English on request and they pour generously. From there, swing south to the Rioja Alavesa (technically still the Basque Country) and stop at <strong>Remelluri</strong> or <strong>Artadi</strong>. Lunch at <strong>Hector Oribe</strong> in Páganos — the menu del día is fifteen euros and it's the best fifteen euros you'll spend on the trip.</p>
+
+    <p class="pull">"Don't sit down. Lean at the bar."</p>
+
+    <h3>Day 4 · Getaria and the coast</h3>
+
+    <p>Drive east along the coast road toward San Sebastián. Stop in <strong>Getaria</strong> for lunch at one of the parrillas on the harbor — grilled turbot, a bottle of local txakoli poured tableside from above your head, the Atlantic ten meters away. <strong>Elkano</strong> is the famous one. <strong>Kaia</strong> is just as good and easier to book. After lunch, walk the harbor and visit one of the txakoli producers in town — <strong>Txomin Etxaniz</strong> or <strong>Zudugarai</strong>, both of which we work with.</p>
+
+    <p>Continue east to <strong>Zarautz</strong> for a walk on the beach and then to <strong>San Sebastián</strong> by sunset.</p>
+
+    <h3>Day 5 · San Sebastián</h3>
+
+    <p>San Sebastián is the prettier sibling — a crescent beach, a belle époque old town, more Michelin stars per square foot than any city in the world. Spend the morning walking from <strong>La Concha</strong> beach up to <strong>Monte Igueldo</strong> for the view. Pintxos lunch in the <strong>Parte Vieja</strong>: <strong>La Cuchara de San Telmo</strong> (order the cheek), <strong>Bar Borda Berri</strong> (order the risotto with idiazábal), <strong>Atari</strong> (order whatever's on the chalkboard).</p>
+
+    <p>Dinner is a choice. If you've planned ahead: <strong>Arzak</strong>, <strong>Mugaritz</strong>, or <strong>Asador Etxebarri</strong> (technically forty minutes away, but worth the drive). If you haven't planned ahead: any of the asadores in the old town will be better than dinner anywhere else in Spain.</p>
+
+    <h3>A few honest notes</h3>
+
+    <p>The Basques are warm but private. Speak a little Spanish; better, a few words of Basque. Don't tip extravagantly — it reads as condescending. Don't order sangria. Don't expect dinner before nine.</p>
+
+    <h3>Or come with us</h3>
+
+    <p>Every year I lead a small-group cultural and wine-focused trip back to the Basque Country — partnered with <a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener">Get Away à la Carte</a>, capped at a handful of travelers, and organized around the producers and people you can't find in a guidebook. Vineyard visits with Gorka and Zudugarai. Pintxos crawls with locals. A farewell dinner inside a private Basque <em>sociedad gastronómica</em>. Nine days, eight nights, one of the densest weeks of food and wine you'll ever do.</p>
+
+    <p>Our <a href="#post-trip-2027">2027 trip</a> is open for pre-interest now. Annual departures continue after that. If a real visit is what you're after, this is the cleanest way to do it.</p>
+
+    <p>And if you make it to Larrabetzu and Gorka pours you something from a bottle that isn't on the price list — say yes.</p>
+  </div>
+</article>
+
+<!-- ============ Newsletter CTA ============ -->
+<section class="newsletter-cta">
+  <div class="wrap-narrow">
+    <code style="display:block; margin-bottom: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color:#5A7152;">Subscribe</code>
+    <h2 style="margin: 0 0 12px;">Get the next entry <em>in your inbox</em></h2>
+    <p>One letter a month. The new journal entry, what we're pouring, and the occasional dispatch from the Basque Country. No filler.</p>
+    <div class="form-row">
+      <input class="newsletter-input" type="email" placeholder="Your email" />
+      <button class="btn btn--primary btn--medium" type="button">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap" style="padding: 64px 0 32px;">
+    <div style="display:grid; grid-template-columns: 1.6fr 1fr 1.2fr 1.4fr; gap: 48px; align-items: start;">
+      <div>
+        <div style="display:flex; align-items:center; gap: 14px; margin-bottom: 18px;">
+          <img src="assets/topa-logo.webp" alt="" style="width:42px; height:42px; background:#FFFFFF; border-radius: 999px; padding: 3px;" />
+          <h3 style="font-size: 18px; margin: 0; white-space: nowrap;">Basque Wine Imports</h3>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; max-width: 38ch;">Curated wines from the Basque Country. Founded in 2024 in Kansas City.</p>
+        <div style="display: flex; gap: 10px; align-items: center; margin-top: 14px;">
+          <img src="assets/basque-flag.png" alt="Ikurriña — Basque flag" title="Topa — a nod to the Basque Country" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+          <img src="assets/kc-flag.png" alt="Kansas City flag" title="Home base — Kansas City" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Explore</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="index.html">Home</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="about.html">About</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="http://instagram.com/basquewineimports">@basquewineimports</a></p>
+        <p style="margin: 6px 0; font-size: 14px;">13725 W. 108th St.<br/>Lenexa, KS 66215</p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
+        <div class="form-wrapper newsletter-form">
+          <div style="display:flex; flex-direction: column; gap: 8px;">
+            <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="margin: 48px 0 24px;" />
+    <div style="display:flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing:0.18em; text-transform: uppercase;">
+      <span>© 2025 Basque Wine Imports</span>
+      <span>13725 W. 108th St. · Lenexa, KS 66215</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
