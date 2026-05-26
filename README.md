@@ -15,6 +15,7 @@ Plain static HTML + CSS. No build step, no framework, no dependencies — drop t
 | `wines.html`  | Full portfolio — two producers, six bottles, three grape field notes |
 | `events.html` | Upcoming tastings, the 2027 Basque Country trip, past pours          |
 | `blog.html`   | The Journal — index + 9 long-form posts (event previews, grape notes, travel) |
+| `trade.html`  | Trade page — wholesale info, distribution markets, sales sheets, FAQ          |
 | `styles.css`  | Global design tokens, type scale, components                         |
 
 ## Design system

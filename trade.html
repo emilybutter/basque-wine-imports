@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trade · Basque Wine Imports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Libre Baskerville", Georgia, serif; background: #FFFFFF; color: #2A4429; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+  .wrap-narrow { max-width: 820px; margin: 0 auto; padding: 0 40px; }
+  .page-section { padding: 96px 0; }
+  .btn:not(.btn--tertiary) { white-space: nowrap; }
+  .btn--tertiary { white-space: nowrap; }
+  .nav-item a { white-space: nowrap; }
+
+  /* Trade hero */
+  .trade-hero {
+    background:
+      linear-gradient(180deg, rgba(42,68,41,0.55) 0%, rgba(42,68,41,0.85) 100%),
+      url('assets/gaztelugatxe.jpg') center/cover;
+    color: #FFFFFF;
+    padding: 140px 0 120px;
+  }
+  .trade-hero code { color: #8DA63F; display: block; margin-bottom: 22px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .trade-hero h1 { color: #FFFFFF; font-size: clamp(2.5rem, 5vw, 4rem); margin: 0 0 24px; line-height: 1.05; max-width: 18ch; }
+  .trade-hero h1 em { color: #8DA63F; font-style: italic; }
+  .trade-hero p { font-size: 19px; line-height: 1.6; color: #E6ECE0; margin: 0 0 32px; max-width: 56ch; }
+
+  /* Offer grid */
+  .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 48px; }
+  .offer-grid .item { border-top: 1px solid #C8D2C0; padding-top: 22px; }
+  .offer-grid .item code { display: block; margin-bottom: 10px; }
+  .offer-grid .item h3 { font-size: 22px; margin: 0 0 12px; }
+  .offer-grid .item p { font-size: 15px; line-height: 1.6; color: #5A7152; margin: 0; }
+
+  /* Sales sheets */
+  .sheet-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 28px; margin-top: 32px; }
+  .sheet-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0; border-bottom: 1px solid #C8D2C0; gap: 16px;
+  }
+  .sheet-row .meta { display: flex; flex-direction: column; gap: 4px; }
+  .sheet-row .meta code { font-size: 0.65rem; }
+  .sheet-row .meta strong { font-weight: 400; font-size: 17px; }
+  .sheet-row a {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: #2A4429;
+    white-space: nowrap; text-decoration: none; padding-bottom: 3px;
+    border-bottom: 1px solid #8DA63F;
+  }
+  .sheet-row a:hover { color: #8DA63F; }
+
+  /* Distribution table */
+  .dist {
+    display: grid; grid-template-columns: 220px 1fr; gap: 12px 32px;
+    font-size: 16px; line-height: 1.6;
+    border-top: 1px solid #C8D2C0; padding-top: 24px;
+  }
+  .dist dt {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.7rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: #5A7152;
+    padding-top: 4px;
+  }
+  .dist dd { margin: 0; padding-bottom: 16px; border-bottom: 1px solid #E6ECE0; }
+  .dist dd:last-of-type { border-bottom: none; }
+
+  /* Contact CTA */
+  .trade-contact { background: #2A4429; color: #FFFFFF; }
+  .trade-contact code { color: #8DA63F; display: block; margin-bottom: 18px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .trade-contact h2 { color: #FFFFFF; margin: 0 0 20px; }
+  .trade-contact h2 em { color: #8DA63F; font-style: italic; }
+  .trade-contact p { font-size: 17px; line-height: 1.65; color: #E6ECE0; margin: 0 0 28px; max-width: 60ch; }
+  .contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
+  .contact-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 28px;
+  }
+  .contact-card h4 { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #8DA63F; margin: 0 0 14px; font-weight: 500; }
+  .contact-card p { margin: 0 0 8px; color: #FFFFFF; font-size: 16px; }
+  .contact-card a { color: #FFFFFF; text-decoration-color: #8DA63F; }
+
+  /* FAQ */
+  .faq details {
+    border-bottom: 1px solid #C8D2C0; padding: 22px 0;
+  }
+  .faq details summary {
+    list-style: none; cursor: pointer; font-size: 19px;
+    display: flex; justify-content: space-between; align-items: center;
+    color: #2A4429;
+  }
+  .faq details summary::-webkit-details-marker { display: none; }
+  .faq details summary::after {
+    content: "+"; font-family: "IBM Plex Mono", monospace;
+    color: #8DA63F; font-size: 22px;
+  }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: #5A7152; }
+
+  @media (max-width: 900px) {
+    .page-section { padding: 64px 0; }
+    .wrap, .wrap-narrow { padding: 0 24px; }
+    .offer-grid, .sheet-list, .contact-grid { grid-template-columns: 1fr; }
+    .dist { grid-template-columns: 1fr; gap: 4px 0; }
+    .dist dt { padding-top: 16px; }
+  }
+</style>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ Announcement bar ============ -->
+<div class="announcement-bar">
+  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;">Now pouring in Kansas City · Hello from the Basque Country</p></div>
+</div>
+
+<!-- ============ Header ============ -->
+<header class="header">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; padding-top: 22px; padding-bottom: 22px;">
+    <div style="display:flex; align-items:center; gap: 14px;">
+      <img src="assets/topa-logo.webp" alt="" style="width:52px; height:52px;" />
+      <h2 class="site-title" style="margin:0; font-size: 22px;"><a href="index.html" style="text-decoration:none;">Basque Wine Imports</a></h2>
+    </div>
+    <nav style="display:flex; gap: 28px; flex-wrap: nowrap;">
+      <div class="nav-item"><a href="index.html">Home</a></div>
+      <div class="nav-item"><a href="about.html">About</a></div>
+      <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+      <div class="nav-item"><a href="events.html">Events</a></div>
+      <div class="nav-item"><a href="blog.html">Journal</a></div>
+      <div class="nav-item nav-item--active"><a href="trade.html">Trade</a></div>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ Hero ============ -->
+<section class="trade-hero">
+  <div class="wrap">
+    <code>For Restaurants · Retailers · Sommeliers</code>
+    <h1>Built for <em>the trade</em></h1>
+    <p>Six bottles, two producers, one coastal sliver of the Basque Country. Allocations are small. Stories are unmistakable. If you pour wine for a living, we'd like to send you a sample.</p>
+    <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+      <a class="btn btn--primary btn--medium" href="#contact">Request samples</a>
+      <a class="btn btn--secondary btn--medium" href="#sheets" style="border-color:#FFFFFF; color:#FFFFFF;">Download sales sheets</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ What we offer ============ -->
+<section class="page-section">
+  <div class="wrap">
+    <div style="max-width: 56ch;">
+      <code style="display:block; margin-bottom: 12px;">What we offer</code>
+      <h2 style="margin: 0 0 16px;">A focused book — <em>not a catalog</em></h2>
+      <p style="font-size: 17px; line-height: 1.65; color:#5A7152; margin: 0;">We work with two estates on the Bay of Biscay and bring in what they bottle — sparkling, white, rosé, and a singular red from indigenous Hondarrabi grapes. Tight allocations, transparent pricing, hand-sold support.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="item">
+        <code>01</code>
+        <h3>Small, defined book</h3>
+        <p>Two producers. Six SKUs. Nothing here is a placeholder — every bottle has earned its slot, and we know it well enough to talk about it for an hour.</p>
+      </div>
+      <div class="item">
+        <code>02</code>
+        <h3>Hand-sold support</h3>
+        <p>Staff trainings, by-the-glass talking points, and ride-alongs in our market. We back the wine you place with the context guests want to hear.</p>
+      </div>
+      <div class="item">
+        <code>03</code>
+        <h3>Direct from the source</h3>
+        <p>We visit twice a year and taste from tank. The producers know us by name; that proximity shows up in the quality and consistency of what arrives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Distribution / market info ============ -->
+<section class="page-section" style="background:#F1F4ED; padding-top: 72px; padding-bottom: 72px;">
+  <div class="wrap-narrow">
+    <code style="display:block; margin-bottom: 12px;">Distribution & markets</code>
+    <h2 style="margin: 0 0 24px;">Where we <em>currently pour</em></h2>
+    <dl class="dist">
+      <dt>Active markets</dt>
+      <dd>Missouri (statewide) · Kansas (KC metro)</dd>
+
+      <dt>Expanding 2026</dt>
+      <dd>Iowa · Nebraska · Illinois. Reach out for current allocation status.</dd>
+
+      <dt>Self-distributing</dt>
+      <dd>Yes, in MO &amp; KS. Pallet, mixed-case, and split-case orders welcome.</dd>
+
+      <dt>Out-of-market trade</dt>
+      <dd>We're not yet in your state, but we'd still like to hear from you — we keep a waitlist and prioritize accounts in markets where we're considering expansion.</dd>
+
+      <dt>Lead times</dt>
+      <dd>In-market: next-day to 3 business days. Allocated SKUs: as available; we'll confirm before invoicing.</dd>
+
+      <dt>Compliance</dt>
+      <dd>All wines are TTB-approved and label-registered in our active markets. COLAs and state registrations available on request.</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ Sales sheets ============ -->
+<section class="page-section" id="sheets">
+  <div class="wrap">
+    <div style="max-width: 56ch; margin-bottom: 8px;">
+      <code style="display:block; margin-bottom: 12px;">Sales sheets</code>
+      <h2 style="margin: 0 0 16px;">Tech sheets &amp; <em>one-pagers</em></h2>
+      <p style="font-size: 17px; line-height: 1.65; color:#5A7152; margin: 0;">PDF one-pagers for each wine — varietal composition, vineyard, vinification, tasting notes, and suggested pairings. Built for staff binders and BTG menus.</p>
+    </div>
+
+    <div class="sheet-list">
+
+      <div class="sheet-row">
+        <div class="meta">
+          <code>Gorka Izagirre</code>
+          <strong>Zura · 100% Hondarrabi Zerratia</strong>
+        </div>
+        <a href="assets/tech-sheets/Zura.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+
+      <div class="sheet-row">
+        <div class="meta">
+          <code>Gorka Izagirre</code>
+          <strong>Ilun · 100% Hondarrabi Beltza</strong>
+        </div>
+        <a href="assets/tech-sheets/Ilun.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+
+      <div class="sheet-row">
+        <div class="meta">
+          <code>Gorka Izagirre</code>
+          <strong>Gorka Izagirre · Hondarrabi Zuri &amp; Zerratia</strong>
+        </div>
+        <a href="assets/tech-sheets/Gorka-Izagirre.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+
+      <div class="sheet-row">
+        <div class="meta">
+          <code>Zudugarai</code>
+          <strong>Zudugarai Sparkling · 26 mo. lees</strong>
+        </div>
+        <a href="assets/tech-sheets/Zudugarai-Sparkling.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+
+      <div class="sheet-row">
+        <div class="meta">
+          <code>Zudugarai</code>
+          <strong>Zudugarai White · 100% Hondarrabi Zuri</strong>
+        </div>
+        <a href="assets/tech-sheets/Zudugarai-White.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+
+      <div class="sheet-row">
+        <div class="meta">
+          <code>Zudugarai</code>
+          <strong>Zudugarai Rosé · Native yeast</strong>
+        </div>
+        <a href="assets/tech-sheets/Zudugarai-Rose.pdf" target="_blank" rel="noopener">Download PDF</a>
+      </div>
+
+    </div>
+
+    <p style="font-family:'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152; margin-top: 32px;">
+      Need a portfolio one-pager covering the full book? <a href="#contact" style="color:#2A4429; text-decoration-color:#8DA63F;">Ask us</a>.
+    </p>
+  </div>
+</section>
+
+<!-- ============ Contact CTA ============ -->
+<section class="page-section trade-contact" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <code>Get in touch</code>
+        <h2 style="white-space: nowrap;">Pour something <em>worth talking about</em></h2>
+        <p>Whether you're building a Spanish-by-the-glass program, looking for a single-bottle showpiece, or want to host a Basque tasting at your shop — we'd love to hear from you. Tell us a bit about your account and we'll be in touch within a business day.</p>
+        <div style="display:flex; gap: 12px; flex-wrap: wrap;">
+          <a class="btn btn--primary btn--medium" href="mailto:kerri@basquewineimports.com?subject=Trade%20inquiry">Email the trade desk</a>
+          <a class="btn btn--secondary btn--medium" href="about.html#contact" style="border-color:#FFFFFF; color:#FFFFFF;">All contact info</a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-card">
+          <h4>Wholesale</h4>
+          <p><a href="mailto:kerri@basquewineimports.com?subject=Trade%20inquiry">kerri@basquewineimports.com</a></p>
+          <p style="font-size: 14px; color:#E6ECE0; margin-top: 14px;">Sample requests, account openings, allocation questions.</p>
+        </div>
+        <div class="contact-card" style="margin-top: 16px;">
+          <h4>Press &amp; Sommelier inquiries</h4>
+          <p><a href="mailto:kerri@basquewineimports.com?subject=Press%20%2F%20somm%20inquiry">kerri@basquewineimports.com</a></p>
+          <p style="font-size: 14px; color:#E6ECE0; margin-top: 14px;">Tasting visits, editorial, staff training requests.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="page-section">
+  <div class="wrap-narrow">
+    <code style="display:block; margin-bottom: 12px;">FAQ</code>
+    <h2 style="margin: 0 0 28px;">Common <em>questions</em></h2>
+    <div class="faq">
+      <details>
+        <summary>Do you have minimums?</summary>
+        <p>No case minimums in our active markets. We're happy to start a new account with a mixed case while you taste the book.</p>
+      </details>
+      <details>
+        <summary>Can we get samples?</summary>
+        <p>Yes — restaurants and retailers in active markets can request sample bottles. Out-of-market accounts can join our waitlist for shipped samples when we expand.</p>
+      </details>
+      <details>
+        <summary>Do you offer staff trainings?</summary>
+        <p>Yes. In-market accounts can book a 45-minute training for FOH or BOH teams covering Basque wine regions, the three indigenous grapes, and the producers we represent.</p>
+      </details>
+      <details>
+        <summary>Are the wines available by the glass?</summary>
+        <p>Several are well-suited to BTG programs — particularly the Zudugarai White and the Gorka Izagirre. We'll work with you on pricing and program fit.</p>
+      </details>
+      <details>
+        <summary>Where can I find current pricing?</summary>
+        <p>FOB and wholesale pricing is available on request from the trade desk. We don't publish prices publicly to keep pace with allocation changes.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap" style="padding: 64px 0 32px;">
+    <div style="display:grid; grid-template-columns: 1.6fr 1fr 1.2fr 1.4fr; gap: 48px; align-items: start;">
+      <div>
+        <div style="display:flex; align-items:center; gap: 14px; margin-bottom: 18px;">
+          <img src="assets/topa-logo.webp" alt="" style="width:42px; height:42px; background:#FFFFFF; border-radius: 999px; padding: 3px;" />
+          <h3 style="font-size: 18px; margin: 0; white-space: nowrap;">Basque Wine Imports</h3>
+        </div>
+        <p style="font-size: 14px; line-height: 1.6; max-width: 38ch;">Curated wines from the Basque Country. Founded in 2024 in Kansas City.</p>
+        <div style="display: flex; gap: 10px; align-items: center; margin-top: 14px;">
+          <img src="assets/basque-flag.png" alt="Ikurriña — Basque flag" title="Topa — a nod to the Basque Country" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+          <img src="assets/kc-flag.png" alt="Kansas City flag" title="Home base — Kansas City" style="width: 36px; height: auto; display: block; opacity: 0.9;" />
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Explore</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="index.html">Home</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="about.html">About</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="trade.html">Trade</a></p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+        <p style="margin: 6px 0; font-size: 14px;"><a href="https://instagram.com/basquewineimports">@basquewineimports</a></p>
+        <p style="margin: 6px 0; font-size: 14px;">13725 W. 108th St.<br/>Lenexa, KS 66215</p>
+      </div>
+      <div>
+        <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+        <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#8DA63F; margin: 0 0 12px;">Next dispatch from Bilbao &darr;</p>
+        <div class="form-wrapper newsletter-form">
+          <div style="display:flex; flex-direction: column; gap: 8px;">
+            <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Send it my way</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr style="margin: 48px 0 24px;" />
+    <div style="display:flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing:0.18em; text-transform: uppercase;">
+      <span>© 2025 Basque Wine Imports</span>
+      <span>13725 W. 108th St. · Lenexa, KS 66215</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

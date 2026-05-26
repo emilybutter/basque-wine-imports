@@ -304,3 +304,67 @@ hr {
   background: var(--moss);
   color: var(--white);
 }
+
+/* ---------- Layout: wrap & page sections ---------- */
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+}
+
+.page-section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+.page-section.light { background: var(--white); }
+.page-section.dark  { background: var(--forest); color: var(--white); }
+
+@media (max-width: 900px) {
+  .wrap { padding-left: 24px; padding-right: 24px; }
+  .page-section { padding-top: 64px; padding-bottom: 64px; }
+}
+
+/* ---------- Decorative rule (Topa ✶) ---------- */
+
+.bwi-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--moss);
+  justify-content: center;
+  margin: 2rem 0;
+}
+.bwi-rule::before,
+.bwi-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  max-width: 120px;
+}
+
+/* ---------- City tag pill (event cards) ---------- */
+
+.city-tag {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--moss);
+  color: var(--moss);
+  background: transparent;
+  margin-left: 10px;
+  vertical-align: middle;
+  line-height: 1.4;
+  white-space: nowrap;
+}
