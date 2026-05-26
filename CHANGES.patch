@@ -1,0 +1,262 @@
+--- live/index.html	2026-05-26 02:02:51.707626422 +0000
++++ /mnt/user-data/outputs/Basque_Wine_Imports/index.html	2026-05-26 02:00:33.409702612 +0000
+@@ -38,6 +38,7 @@
+       <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+       <div class="nav-item"><a href="events.html">Events</a></div>
+       <div class="nav-item"><a href="blog.html">Journal</a></div>
++      <div class="nav-item"><a href="trade.html">Trade</a></div>
+     </nav>
+   </div>
+ </header>
+@@ -244,7 +245,7 @@
+ 
+       <article style="display:flex; flex-direction:column; gap: 18px;">
+         <div style="aspect-ratio: 4/5; background: #F1F4ED url('assets/bar-vin.jpg') center/cover;"></div>
+-        <code style="display:block;">May 26 · 5:30 PM</code>
++        <code style="display:block;">May 26 · 5:30 PM <span class="city-tag">Hermann, MO</span></code>
+         <h3 style="font-size: 26px; margin: 0;">Bar Vin <em>Wine Tasting</em></h3>
+         <p style="margin: 0; font-size: 15px; line-height: 1.6; color:#5A7152;">Our Passport Series is headed to the Spanish Basque Country, and you're invited to drink, learn, and discover hidden gem summer wines at Bar Vin. Tickets are $40 per person—reserve your spot today for an unforgettable evening of world-class flavors and great company!</p>
+         <div style="margin-top: auto;">
+@@ -254,7 +255,7 @@
+ 
+       <article style="display:flex; flex-direction:column; gap: 18px;">
+         <div style="aspect-ratio: 4/5; background: #F1F4ED url('assets/vicia-garden.jpg') center/cover;"></div>
+-        <code style="display:block;">May 27 · 6:00 PM</code>
++        <code style="display:block;">May 27 · 6:00 PM <span class="city-tag">Saint Louis</span></code>
+         <h3 style="font-size: 26px; margin: 0;">Vicia <em>Wine Tasting</em></h3>
+         <p style="margin: 0; font-size: 15px; line-height: 1.6; color:#5A7152;">Vicia Wine &amp; Spirits School invites you to drink, learn, and discover exceptional pours out in our beautiful Wine Garden! Led by industry experts, this monthly educational series pairs curated tastings with perfectly matched small snacks and insider knowledge. Tickets are $30 per person.</p>
+         <div style="margin-top: auto;">
+@@ -264,7 +265,7 @@
+ 
+       <article style="display:flex; flex-direction:column; gap: 18px;">
+         <div style="aspect-ratio: 4/5; background: #F1F4ED url('assets/women-in-wine.avif') center/cover;"></div>
+-        <code style="display:block;">June 10 · 6:00–9:00 PM</code>
++        <code style="display:block;">June 10 · 6:00–9:00 PM <span class="city-tag">Kansas City</span></code>
+         <h3 style="font-size: 26px; margin: 0;">Women In Wine, <em>Wine Dinner</em></h3>
+         <p style="margin: 0; font-size: 15px; line-height: 1.6; color:#5A7152;">Join Women in Wine KC for "A Global Tasting" in the tranquil courtyard patio at Affäre on June 10th. Starting at $78 per ticket, this exclusive evening features a vibrant celebration of wine, culture, and discovery.</p>
+         <div style="margin-top: auto;">
+@@ -315,6 +316,7 @@
+         <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
++        <p style="margin: 6px 0; font-size: 14px;"><a href="trade.html">Trade</a></p>
+       </div>
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+@@ -324,10 +326,11 @@
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+         <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
++        <p style="font-family:'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#8DA63F; margin: 0 0 12px;">Next dispatch from Bilbao &darr;</p>
+         <div class="form-wrapper newsletter-form">
+           <div style="display:flex; flex-direction: column; gap: 8px;">
+             <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+-            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
++            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Send it my way</button>
+           </div>
+         </div>
+       </div>
+--- live/about.html	2026-05-26 02:02:51.765933521 +0000
++++ /mnt/user-data/outputs/Basque_Wine_Imports/about.html	2026-05-26 02:00:12.791549062 +0000
+@@ -236,6 +236,7 @@
+       <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+       <div class="nav-item"><a href="events.html">Events</a></div>
+       <div class="nav-item"><a href="blog.html">Journal</a></div>
++      <div class="nav-item"><a href="trade.html">Trade</a></div>
+     </nav>
+   </div>
+ </header>
+@@ -469,6 +470,7 @@
+         <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
++        <p style="margin: 6px 0; font-size: 14px;"><a href="trade.html">Trade</a></p>
+       </div>
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+@@ -478,10 +480,11 @@
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+         <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
++        <p style="font-family:'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#8DA63F; margin: 0 0 12px;">Next dispatch from Bilbao &darr;</p>
+         <div class="form-wrapper newsletter-form">
+           <div style="display:flex; flex-direction: column; gap: 8px;">
+             <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+-            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
++            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Send it my way</button>
+           </div>
+         </div>
+       </div>
+--- live/wines.html	2026-05-26 02:02:51.841242866 +0000
++++ /mnt/user-data/outputs/Basque_Wine_Imports/wines.html	2026-05-26 02:00:12.849447981 +0000
+@@ -170,6 +170,7 @@
+       <div class="nav-item nav-item--active"><a href="wines.html">Our Wines</a></div>
+       <div class="nav-item"><a href="events.html">Events</a></div>
+       <div class="nav-item"><a href="blog.html">Journal</a></div>
++      <div class="nav-item"><a href="trade.html">Trade</a></div>
+     </nav>
+   </div>
+ </header>
+@@ -421,6 +422,7 @@
+         <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
++        <p style="margin: 6px 0; font-size: 14px;"><a href="trade.html">Trade</a></p>
+       </div>
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+@@ -431,10 +433,11 @@
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+         <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
++        <p style="font-family:'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#8DA63F; margin: 0 0 12px;">Next dispatch from Bilbao &darr;</p>
+         <div class="form-wrapper newsletter-form">
+           <div style="display:flex; flex-direction: column; gap: 8px;">
+             <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+-            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
++            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Send it my way</button>
+           </div>
+         </div>
+       </div>
+--- live/events.html	2026-05-26 02:02:51.896973895 +0000
++++ /mnt/user-data/outputs/Basque_Wine_Imports/events.html	2026-05-26 02:00:12.908345851 +0000
+@@ -190,6 +190,7 @@
+       <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+       <div class="nav-item nav-item--active"><a href="events.html">Events</a></div>
+       <div class="nav-item"><a href="blog.html">Journal</a></div>
++      <div class="nav-item"><a href="trade.html">Trade</a></div>
+     </nav>
+   </div>
+ </header>
+@@ -448,6 +449,7 @@
+         <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
++        <p style="margin: 6px 0; font-size: 14px;"><a href="trade.html">Trade</a></p>
+       </div>
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+@@ -457,10 +459,11 @@
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+         <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
++        <p style="font-family:'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#8DA63F; margin: 0 0 12px;">Next dispatch from Bilbao &darr;</p>
+         <div class="form-wrapper newsletter-form">
+           <div style="display:flex; flex-direction: column; gap: 8px;">
+             <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+-            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
++            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Send it my way</button>
+           </div>
+         </div>
+       </div>
+--- live/blog.html	2026-05-26 02:02:51.956624433 +0000
++++ /mnt/user-data/outputs/Basque_Wine_Imports/blog.html	2026-05-26 02:00:56.835275440 +0000
+@@ -131,6 +131,7 @@
+       <div class="nav-item"><a href="wines.html">Our Wines</a></div>
+       <div class="nav-item"><a href="events.html">Events</a></div>
+       <div class="nav-item nav-item--active"><a href="blog.html">Journal</a></div>
++      <div class="nav-item"><a href="trade.html">Trade</a></div>
+     </nav>
+   </div>
+ </header>
+@@ -630,6 +631,7 @@
+         <p style="margin: 6px 0; font-size: 14px;"><a href="wines.html">Our Wines</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="events.html">Events</a></p>
+         <p style="margin: 6px 0; font-size: 14px;"><a href="blog.html">Journal</a></p>
++        <p style="margin: 6px 0; font-size: 14px;"><a href="trade.html">Trade</a></p>
+       </div>
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Contact</h4>
+@@ -639,10 +641,11 @@
+       <div>
+         <h4 style="font-size: 13px; margin: 0 0 14px; letter-spacing: 0.12em; text-transform: uppercase;">Newsletter</h4>
+         <p style="font-size: 13px; line-height: 1.55; margin: 0 0 12px; color:#5A7152;">One letter a month. New journal entries, upcoming pours, and the occasional dispatch from the Basque Country.</p>
++        <p style="font-family:'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#8DA63F; margin: 0 0 12px;">Next dispatch from Bilbao &darr;</p>
+         <div class="form-wrapper newsletter-form">
+           <div style="display:flex; flex-direction: column; gap: 8px;">
+             <input class="newsletter-input" type="email" placeholder="Your email" style="width:100%; padding: 0.7rem 0.85rem !important; font-size: 0.85rem !important;" />
+-            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Join</button>
++            <button class="btn btn--primary btn--small" type="button" style="padding: 0.7rem 1rem !important;">Send it my way</button>
+           </div>
+         </div>
+       </div>
+--- live/styles.css	2026-05-26 02:02:52.017870312 +0000
++++ /mnt/user-data/outputs/Basque_Wine_Imports/styles.css	2026-05-26 02:00:13.036537109 +0000
+@@ -304,3 +304,67 @@
+   background: var(--moss);
+   color: var(--white);
+ }
++
++/* ---------- Layout: wrap & page sections ---------- */
++
++.wrap {
++  max-width: 1180px;
++  margin: 0 auto;
++  padding-left: 40px;
++  padding-right: 40px;
++  width: 100%;
++}
++
++.page-section {
++  padding-top: 96px;
++  padding-bottom: 96px;
++}
++.page-section.light { background: var(--white); }
++.page-section.dark  { background: var(--forest); color: var(--white); }
++
++@media (max-width: 900px) {
++  .wrap { padding-left: 24px; padding-right: 24px; }
++  .page-section { padding-top: 64px; padding-bottom: 64px; }
++}
++
++/* ---------- Decorative rule (Topa ✶) ---------- */
++
++.bwi-rule {
++  display: flex;
++  align-items: center;
++  gap: 1rem;
++  font-family: "IBM Plex Mono", monospace;
++  font-size: 0.7rem;
++  letter-spacing: 0.3em;
++  text-transform: uppercase;
++  color: var(--moss);
++  justify-content: center;
++  margin: 2rem 0;
++}
++.bwi-rule::before,
++.bwi-rule::after {
++  content: "";
++  flex: 1;
++  height: 1px;
++  background: var(--rule);
++  max-width: 120px;
++}
++
++/* ---------- City tag pill (event cards) ---------- */
++
++.city-tag {
++  display: inline-block;
++  font-family: "IBM Plex Mono", monospace;
++  font-size: 0.62rem;
++  letter-spacing: 0.22em;
++  text-transform: uppercase;
++  padding: 3px 9px;
++  border-radius: 999px;
++  border: 1px solid var(--moss);
++  color: var(--moss);
++  background: transparent;
++  margin-left: 10px;
++  vertical-align: middle;
++  line-height: 1.4;
++  white-space: nowrap;
++}
+--- live/README.md	2026-05-26 02:02:52.075865883 +0000
++++ /mnt/user-data/outputs/Basque_Wine_Imports/README.md	2026-05-26 02:02:39.010534220 +0000
+@@ -15,6 +15,7 @@
+ | `wines.html`  | Full portfolio — two producers, six bottles, three grape field notes |
+ | `events.html` | Upcoming tastings, the 2027 Basque Country trip, past pours          |
+ | `blog.html`   | The Journal — index + 9 long-form posts (event previews, grape notes, travel) |
++| `trade.html`  | Trade page — wholesale info, distribution markets, sales sheets, FAQ          |
+ | `styles.css`  | Global design tokens, type scale, components                         |
+ 
+ ## Design system
