@@ -101,10 +101,102 @@
   .faq details[open] summary::after { content: "−"; }
   .faq details p { margin: 14px 0 0; font-size: 16px; line-height: 1.65; color: #5A7152; }
 
+  /* Sample request form */
+  .samples-form { background: #F1F4ED; }
+  .samples-form .layout {
+    display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: start;
+  }
+  .samples-form .intro h2 { margin: 0 0 16px; }
+  .samples-form .intro p { font-size: 17px; line-height: 1.65; color:#5A7152; margin: 0 0 18px; max-width: 44ch; }
+  .samples-form .intro .small {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152;
+    margin-top: 28px;
+  }
+  .samples-form form {
+    background: #FFFFFF;
+    border: 1px solid #C8D2C0;
+    padding: 36px;
+  }
+  .samples-form .field { margin-bottom: 22px; }
+  .samples-form label {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #2A4429; margin-bottom: 8px; font-weight: 500;
+  }
+  .samples-form label .req { color: #8DA63F; margin-left: 4px; }
+  .samples-form input[type="text"],
+  .samples-form input[type="email"],
+  .samples-form input[type="tel"],
+  .samples-form textarea,
+  .samples-form select {
+    width: 100%;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 15px;
+    border: 1px solid #C8D2C0;
+    border-radius: 0;
+    background: #FFFFFF;
+    color: #2A4429;
+    padding: 12px 14px;
+    box-shadow: none;
+    outline: none;
+    transition: border-color 160ms ease;
+  }
+  .samples-form textarea { resize: vertical; min-height: 90px; }
+  .samples-form input:focus,
+  .samples-form textarea:focus,
+  .samples-form select:focus { border-color: #8DA63F; }
+  .samples-form .radio-group {
+    display: flex; flex-direction: column; gap: 10px;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 15px; color: #2A4429;
+  }
+  .samples-form .radio-group label {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 15px; letter-spacing: 0; text-transform: none;
+    color: #2A4429; font-weight: 400; margin-bottom: 0;
+    display: flex; align-items: center; gap: 10px; cursor: pointer;
+  }
+  .samples-form .radio-group input[type="radio"] {
+    width: auto; margin: 0; accent-color: #8DA63F;
+  }
+  .samples-form .checkbox-group {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 14px; color: #2A4429;
+  }
+  .samples-form .checkbox-group label {
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 14px; letter-spacing: 0; text-transform: none;
+    color: #2A4429; font-weight: 400; margin-bottom: 0;
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+  }
+  .samples-form .checkbox-group input[type="checkbox"] {
+    width: auto; margin: 0; accent-color: #8DA63F;
+  }
+  .samples-form button[type="submit"] {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 0.72rem;
+    background: #8DA63F; border: 1px solid #8DA63F; color: #FFFFFF;
+    border-radius: 0; padding: 1rem 1.75rem; cursor: pointer;
+    transition: background 160ms ease, border-color 160ms ease;
+  }
+  .samples-form button[type="submit"]:hover {
+    background: #2A4429; border-color: #2A4429;
+  }
+  .samples-form .fine {
+    font-size: 12px; color: #5A7152; line-height: 1.5;
+    margin-top: 16px;
+  }
+
   @media (max-width: 900px) {
     .page-section { padding: 64px 0; }
     .wrap, .wrap-narrow { padding: 0 24px; }
     .offer-grid, .sheet-list, .contact-grid { grid-template-columns: 1fr; }
+    .samples-form .layout { grid-template-columns: 1fr; gap: 32px; }
+    .samples-form .checkbox-group { grid-template-columns: 1fr; }
     .dist { grid-template-columns: 1fr; gap: 4px 0; }
     .dist dt { padding-top: 16px; }
   }
@@ -115,7 +207,7 @@
 
 <!-- ============ Announcement bar ============ -->
 <div class="announcement-bar">
-  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;"><a href="blog.html#post-trip-2027" style="color: inherit; text-decoration: none; display: block;">Taste, Explore, and Wander: The 2027 Basque Country Experience · Spaces are Limited — Reserve Your Seat Today</a></p></div>
+  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;"><a href="blog.html#post-trip-2027" style="color: inherit; text-decoration: none; display: block;">The 2027 Basque Country Experience · Spaces are Limited — Reserve Your Seat</a></p></div>
 </div>
 
 <!-- ============ Header ============ -->
@@ -143,7 +235,7 @@
     <h1>Built for <em>the trade</em></h1>
     <p>Six bottles, two producers, one coastal sliver of the Basque Country. Allocations are small. Stories are unmistakable. If you pour wine for a living, we'd like to send you a sample.</p>
     <div style="display:flex; gap: 12px; flex-wrap: wrap;">
-      <a class="btn btn--primary btn--medium" href="#contact">Request samples</a>
+      <a class="btn btn--primary btn--medium" href="#samples">Request samples</a>
       <a class="btn btn--secondary btn--medium" href="#sheets" style="border-color:#FFFFFF; color:#FFFFFF;">Download sales sheets</a>
     </div>
   </div>
@@ -271,6 +363,94 @@
   </div>
 </section>
 
+<!-- ============ Sample request form ============ -->
+<section class="page-section samples-form" id="samples">
+  <div class="wrap">
+    <div class="layout">
+      <div class="intro">
+        <code style="display:block; margin-bottom: 12px; font-family:'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color:#5A7152;">Request samples</code>
+        <h2>Let's get a few bottles <em>in your hands</em></h2>
+        <p>If you're in the Kansas City metro or Missouri, Kerri will drop by in person to pour through the book and answer questions. If you're out of market, we'll ship samples.</p>
+        <p>Either way, tell us a little about your account below and we'll be in touch within one business day.</p>
+        <div class="small">A handful of bottles · No obligation · Direct from Kerri</div>
+      </div>
+
+      <form name="trade-samples" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?samples=thanks">
+        <input type="hidden" name="form-name" value="trade-samples" />
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+        <div class="field">
+          <label for="s-name">Your name <span class="req">*</span></label>
+          <input type="text" id="s-name" name="name" required />
+        </div>
+
+        <div class="field">
+          <label for="s-business">Business name <span class="req">*</span></label>
+          <input type="text" id="s-business" name="business" required />
+        </div>
+
+        <div class="field">
+          <label for="s-type">Account type <span class="req">*</span></label>
+          <select id="s-type" name="account_type" required>
+            <option value="">Select one…</option>
+            <option>Restaurant</option>
+            <option>Wine bar</option>
+            <option>Retail / bottle shop</option>
+            <option>Hotel / hospitality group</option>
+            <option>Distributor</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="s-email">Email <span class="req">*</span></label>
+          <input type="email" id="s-email" name="email" required />
+        </div>
+
+        <div class="field">
+          <label for="s-phone">Phone</label>
+          <input type="tel" id="s-phone" name="phone" />
+        </div>
+
+        <div class="field">
+          <label for="s-city">City &amp; state <span class="req">*</span></label>
+          <input type="text" id="s-city" name="city_state" placeholder="e.g. Kansas City, MO" required />
+        </div>
+
+        <div class="field">
+          <label>How should we get samples to you? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="delivery" value="In person (KC metro / Missouri)" required /> In person — I'm in the KC metro or Missouri</label>
+            <label><input type="radio" name="delivery" value="Ship samples (out of market)" /> Ship samples — I'm out of market</label>
+            <label><input type="radio" name="delivery" value="Either works" /> Either works</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Which wines are you most curious about? (optional)</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="wines" value="Zura" /> Zura</label>
+            <label><input type="checkbox" name="wines" value="Ilun" /> Ilun</label>
+            <label><input type="checkbox" name="wines" value="Gorka Izagirre" /> Gorka Izagirre</label>
+            <label><input type="checkbox" name="wines" value="Zudugarai Sparkling" /> Zudugarai Sparkling</label>
+            <label><input type="checkbox" name="wines" value="Zudugarai White" /> Zudugarai White</label>
+            <label><input type="checkbox" name="wines" value="Zudugarai Rosé" /> Zudugarai Rosé</label>
+            <label><input type="checkbox" name="wines" value="The whole book" /> The whole book</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="s-notes">Anything else we should know? (optional)</label>
+          <textarea id="s-notes" name="notes" placeholder="Program goals, current Spanish offerings, best time to reach you, etc."></textarea>
+        </div>
+
+        <button type="submit">Send request</button>
+        <p class="fine">We'll only use this to follow up about samples. No newsletters added, no list sharing.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ============ Contact CTA ============ -->
 <section class="page-section trade-contact" id="contact">
   <div class="wrap">
@@ -312,7 +492,7 @@
       </details>
       <details>
         <summary>Can we get samples?</summary>
-        <p>Yes — restaurants and retailers in active markets can request sample bottles. Out-of-market accounts can join our waitlist for shipped samples when we expand.</p>
+        <p>Absolutely. For accounts in the Kansas City metro and Missouri, Kerri prefers to come by in person — drop off a few bottles, walk your team through the wines, and answer questions over the pour. For out-of-market accounts, we'll ship samples. Either way, <a href="#samples" style="color:#2A4429; text-decoration-color:#8DA63F;">request samples here</a> and we'll be in touch.</p>
       </details>
       <details>
         <summary>Do you offer staff trainings?</summary>

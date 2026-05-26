@@ -94,6 +94,72 @@
   .post-body .event-meta dt { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color:#5A7152; margin-bottom: 6px; }
   .post-body .event-meta dd { margin: 0; font-size: 16px; }
 
+  /* Trip waitlist form */
+  .trip-waitlist {
+    background: #F1F4ED;
+    border: 1px solid #C8D2C0;
+    padding: 40px;
+    margin: 48px 0 24px;
+  }
+  .trip-waitlist code {
+    display: block; margin-bottom: 12px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #5A7152;
+  }
+  .trip-waitlist h3 { margin: 0 0 12px; font-size: 26px; }
+  .trip-waitlist .intro { font-size: 16px; line-height: 1.6; color: #5A7152; margin: 0 0 24px; }
+  .trip-waitlist .field { margin-bottom: 18px; }
+  .trip-waitlist .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .trip-waitlist label {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #2A4429; margin-bottom: 6px; font-weight: 500;
+  }
+  .trip-waitlist label .req { color: #8DA63F; margin-left: 4px; }
+  .trip-waitlist input[type="text"],
+  .trip-waitlist input[type="email"],
+  .trip-waitlist input[type="tel"],
+  .trip-waitlist textarea,
+  .trip-waitlist select {
+    width: 100%;
+    font-family: "Libre Baskerville", Georgia, serif;
+    font-size: 15px;
+    border: 1px solid #C8D2C0;
+    border-radius: 0;
+    background: #FFFFFF;
+    color: #2A4429;
+    padding: 11px 13px;
+    box-shadow: none;
+    outline: none;
+    transition: border-color 160ms ease;
+  }
+  .trip-waitlist textarea { resize: vertical; min-height: 80px; }
+  .trip-waitlist input:focus,
+  .trip-waitlist textarea:focus,
+  .trip-waitlist select:focus { border-color: #8DA63F; }
+  .trip-waitlist button[type="submit"] {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 0.72rem;
+    background: #8DA63F; border: 1px solid #8DA63F; color: #FFFFFF;
+    border-radius: 0; padding: 1rem 1.75rem; cursor: pointer;
+    transition: background 160ms ease, border-color 160ms ease;
+    margin-top: 8px;
+  }
+  .trip-waitlist button[type="submit"]:hover {
+    background: #2A4429; border-color: #2A4429;
+  }
+  .trip-waitlist .fine {
+    font-size: 12px; color: #5A7152; line-height: 1.5;
+    margin: 14px 0 0;
+  }
+  @media (max-width: 700px) {
+    .trip-waitlist { padding: 28px; }
+    .trip-waitlist .row { grid-template-columns: 1fr; }
+  }
+
   .newsletter-cta {
     background: #F1F4ED;
     padding: 80px 0;
@@ -115,7 +181,7 @@
 
 <!-- ============ Announcement bar ============ -->
 <div class="announcement-bar">
-  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;"><a href="blog.html#post-trip-2027" style="color: inherit; text-decoration: none; display: block;">Taste, Explore, and Wander: The 2027 Basque Country Experience · Spaces are Limited — Reserve Your Seat Today</a></p></div>
+  <div class="wrap"><p style="margin:0; padding: 12px 0; text-align:center;"><a href="blog.html#post-trip-2027" style="color: inherit; text-decoration: none; display: block;">The 2027 Basque Country Experience · Spaces are Limited — Reserve Your Seat</a></p></div>
 </div>
 
 <!-- ============ Header ============ -->
@@ -253,7 +319,7 @@
     <dl class="event-meta">
       <div><dt>When</dt><dd>Fall 2027 · 9 days, 8 nights</dd></div>
       <div><dt>Group size</dt><dd>Small group · limited spots</dd></div>
-      <div><dt>How to join</dt><dd><a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener" style="color:#2A4429;">Book on Get Away à la Carte</a></dd></div>
+      <div><dt>How to join</dt><dd><a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener" style="color:#2A4429;">Book on Get Away à la Carte</a> · <a href="#trip-waitlist" style="color:#2A4429;">Join the pre-interest list</a></dd></div>
     </dl>
 
     <p>Our 2026 Basque Country trip filled up the week we announced it. So we're back at it for Fall 2027, again in partnership with <strong>Get Away à la Carte</strong> — Kathy Denis's small-group travel company out of Overland Park — and again with me along as the cultural anthropologist, wine importer, and on-the-ground guide.</p>
@@ -292,11 +358,77 @@
 
     <h3>How to join</h3>
 
-    <p>Pricing, full itinerary, and registration are all on the Get Away à la Carte site — that's where Kathy handles the bookings. <a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener"><strong>Reserve your spot or join the pre-interest list there →</strong></a></p>
+    <p>There are two ways to get involved. If you're ready to book, head over to <strong>Get Away à la Carte</strong> — Kathy handles the bookings, pricing, and full itinerary there.</p>
+
+    <p>If you're interested but not quite ready to commit, join the pre-interest list below. You'll be the first to hear when registration opens, and you'll get a couple of dispatches from me as the trip takes shape — producer visits, sample itinerary tweaks, the occasional photo from Bilbao.</p>
+
+    <div class="trip-waitlist" id="trip-waitlist">
+      <code>Pre-interest list</code>
+      <h3>Join the 2027 trip waitlist</h3>
+      <p class="intro">Not a deposit, not a commitment — just a heads-up when registration opens and a couple of updates between now and then.</p>
+
+      <form name="trip-waitlist-2027" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?trip=thanks">
+        <input type="hidden" name="form-name" value="trip-waitlist-2027" />
+        <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+        <div class="row">
+          <div class="field">
+            <label for="t-name">Name <span class="req">*</span></label>
+            <input type="text" id="t-name" name="name" required />
+          </div>
+          <div class="field">
+            <label for="t-email">Email <span class="req">*</span></label>
+            <input type="email" id="t-email" name="email" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="t-phone">Phone (optional)</label>
+            <input type="tel" id="t-phone" name="phone" />
+          </div>
+          <div class="field">
+            <label for="t-city">City &amp; state</label>
+            <input type="text" id="t-city" name="city_state" placeholder="e.g. Kansas City, MO" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="t-party">Likely party size</label>
+            <select id="t-party" name="party_size">
+              <option value="">Select…</option>
+              <option>Just me (1)</option>
+              <option>Two of us (couple / friend)</option>
+              <option>Small group (3–4)</option>
+              <option>Bigger group (5+)</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="t-timing">How likely are you to join?</label>
+            <select id="t-timing" name="likelihood">
+              <option value="">Select…</option>
+              <option>Very likely — just want details</option>
+              <option>Probably — depends on dates and price</option>
+              <option>Curious — still exploring</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="t-notes">Anything we should know? (optional)</label>
+          <textarea id="t-notes" name="notes" placeholder="Dietary considerations, mobility questions, must-have stops, etc."></textarea>
+        </div>
+
+        <button type="submit">Add me to the list</button>
+        <p class="fine">No spam. We'll only use this for trip updates and to let you know when registration opens. Booking and payment still go through Get Away à la Carte.</p>
+      </form>
+    </div>
 
     <p>I'd love to see you there.</p>
 
-    <p style="margin-top: 32px; display:flex; gap: 12px; flex-wrap: wrap;"><a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener" class="btn btn--primary btn--medium">Book the trip</a><a href="events.html#trip-2027" class="btn btn--secondary btn--medium">See it on the Events page</a></p>
+    <p style="margin-top: 32px; display:flex; gap: 12px; flex-wrap: wrap;"><a href="https://getawayalacarte.com/basque-country-2027/" target="_blank" rel="noopener" class="btn btn--primary btn--medium">Book the trip</a><a href="#trip-waitlist" class="btn btn--secondary btn--medium">Join the pre-interest list</a></p>
   </div>
 </article>
 
